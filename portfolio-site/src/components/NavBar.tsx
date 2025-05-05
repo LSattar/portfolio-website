@@ -1,5 +1,9 @@
 import { NavLink } from "./NavLink";
 import "../css/navbar.css"
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 type LinkType = {
     linkName: string;
@@ -14,22 +18,24 @@ export const NavBar = () => {
     ];
 
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-4"></div>
-                <div className="col-4">
-                    <nav className="navbar navbar-light bg-light px-3">
+        <Navbar bg="light" variant="light" expand="lg" className="mb-4">
+            <Container>
+                <Navbar.Brand href="/">Leah Sattar</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mx-auto">
                         {links.map((link) => (
-                            <div key={link.linkName}>
+                            <Nav.Link
+                                as="span"
+                                key={link.linkName}
+                                className="mx-2"
+                            >
                                 <NavLink linkObject={link} />
-                            </div>
+                            </Nav.Link>
                         ))}
-                    </nav>
-                </div>
-                <div className="col-4"></div>
-            </div>
-
-        </div>
-
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
-}
+};
