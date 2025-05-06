@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .App-logo {
@@ -70,4 +72,62 @@
 .scrollable-column {
   max-height: 100vh;
   overflow-y: auto;
+}
+
+.card-hover:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.scrollable-column p {
+  all: unset;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.scrollable-column section {
+  scroll-margin-top: 400px; 
+}
+
+h3{
+  padding-top:.5em;
+  padding-bottom: .5em;
+}
+
+.sticky-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+html, body, #root, .App {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.App {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 320px;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+}
+
+.main-content {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.main-content section {
+  scroll-margin-top: 80px;
 }
