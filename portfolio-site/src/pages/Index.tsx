@@ -116,30 +116,32 @@ export const Index = () => {
 
     return (
         <div className="App d-flex bg-dark text-light">
-            <Container fluid>
+            <Container>
                 <Row>
-                    <Col md={5} className='p-5'>
+                    <Col md={5} className='d-flex flex-column h-100 mw-100'>
                         <Container id="sidebar-content">
-                            <Container>
+                            <Container className='fixed-top p-5'>
+                                <Container>
                                 <h1>Leah Sattar</h1>
                                 <p className='text-purple'>Full Stack Developer<br />CompTIA Security+ Certified</p>
                                 <h3>Welcome to my portfolio</h3>
                             </Container>
 
-                            <Nav className="flex-column text-start ms-5">
-                                <Nav.Item>
-                                    <Nav.Link href="#about" active={activeSection === "about"} className="px-0 text-purple nav-link-custom ps-2">About</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link href="#experience" active={activeSection === "experience"} className="px-0  text-purple nav-link-custom ps-2">Experience</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link href="#projects" active={activeSection === "projects"} className="px-0  text-purple nav-link-custom ps-2">Projects</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link href="#education" active={activeSection === "education"} className="px-0  text-purple nav-link-custom ps-2">Education</Nav.Link>
-                                </Nav.Item>
-                            </Nav>
+                                <Nav className="flex-column text-start ms-5 w-25">
+                                    <Nav.Item>
+                                        <Nav.Link href="#about" active={activeSection === "about"} className="px-0 text-purple nav-link-custom ps-2">About</Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link href="#experience" active={activeSection === "experience"} className="px-0  text-purple nav-link-custom ps-2">Experience</Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link href="#projects" active={activeSection === "projects"} className="px-0  text-purple nav-link-custom ps-2">Projects</Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link href="#education" active={activeSection === "education"} className="px-0  text-purple nav-link-custom ps-2">Education</Nav.Link>
+                                    </Nav.Item>
+                                </Nav></Container>
+
 
                             <Container className="pt-4 p-5 fixed-bottom text-start text-purple">
                                 <h2>

@@ -141,7 +141,7 @@ h3{
 html, body, #root, .App {
   height: 100%;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .App {
@@ -157,11 +157,6 @@ html, body, #root, .App {
   position: sticky;
   top: 0;
   overflow-y: auto;
-}
-
-.main-content {
-  overflow-y: auto;
-  height: 100vh;
 }
 
 .main-content section {
