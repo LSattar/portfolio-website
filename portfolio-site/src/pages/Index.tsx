@@ -118,9 +118,9 @@ export const Index = () => {
         <div className="App d-flex bg-dark text-light">
             <Container>
                 <Row>
-                    <Col md={5} className='d-flex flex-column h-100 mw-100'>
+                    <Col md={5} className='h-100 mw-100 sticky'>
                         <Container id="sidebar-content">
-                            <Container className='fixed-top p-5'>
+                            <Container className='sticky p-5'>
                                 <Container>
                                 <h1>Leah Sattar</h1>
                                 <p className='text-purple'>Full Stack Developer<br />CompTIA Security+ Certified</p>
@@ -167,11 +167,11 @@ export const Index = () => {
                                 <p>
                                     Beyond coding, I enjoy spending time with my four cats, mastering Dance Dance Revolution, and experimenting in the kitchen.
                                 </p>
-                                <p>
-                                    <Link to="/about-me" className="text-purple fw-bold">Read more →</Link>
-                                </p>
+                                <Link to="/about-me" className="text-purple fw-bold">Read more →</Link>
+
                             </section>
                             <section id="experience" className='mb-5'>
+
                                 <h3>Experience</h3>
                                 <Row>
                                     {experience.map((experience, index) => (

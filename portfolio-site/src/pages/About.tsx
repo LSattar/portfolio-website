@@ -68,81 +68,72 @@ export const About = () => {
     };
 
     return (
-        <Container className="bg-dark w-100 px-0 mx-0">
-            <Row>
-                <Col><h1>About Me</h1></Col>
-            </Row>
-            <Row>
-                <p>Thanks for taking the time to learn a bit more about me!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-            </Row>
-            <Container>
-                <Row>
-                    <Col md={6}>
-                        <p>Something here</p>
-                    </Col>
-                    <Col md={6}>
-                        <Image src={placeholderImg} fluid className="object-fit-contain mh-50"></Image>
-                    </Col>
-                </Row>
-            </Container>
+        <Container>
+            <h3>About Me</h3>
+                                <div className="d-flex flex-nowrap">
+                                    {timelineEvents.map((event, index) => (
+                                        <ToggleButton
+                                            className="me-2 ms-2"
+                                            key={index}
+                                            id={`timeline-${index}`}
+                                            type="radio"
+                                            variant="outline-light"
+                                            name="timeline"
+                                            value={String(index)}
+                                            checked={radioValue === String(index)}
+                                            onChange={(e) => {
+                                                const newIndex = Number(e.currentTarget.value);
+                                                setActiveIndex(newIndex);
+                                                setRadioValue(e.currentTarget.value);
+                                            }}
+                                        >
+                                            {event.date}
+                                        </ToggleButton>
+                                    ))}
+                                </div>
 
-            <Container>
-                <h3>My Story</h3>
-                <Container className="mb-3">
-                    {timelineEvents.map((event, index) => (
-                        <ToggleButton className="me-2 ms-2"
-                            key={index}
-                            id={`timeline-${index}`}
-                            type="radio"
-                            variant="outline-light"
-                            name="timeline"
-                            value={String(index)}
-                            checked={radioValue === String(index)}
-                            onChange={(e) => {
-                                const newIndex = Number(e.currentTarget.value);
-                                setActiveIndex(newIndex);
-                                setRadioValue(e.currentTarget.value);
-                            }}
-                        >
-                            {event.date}
-                        </ToggleButton>
-                    ))}
-                </Container>
-                <Carousel className="pb-5 w-75 mx-auto"
-                    activeIndex={activeIndex}
-                    onSelect={handleSelect}
-                    indicators={false}
-                    interval={null}
-                    variant="dark"
-                    controls={false}
-                >
-                    {timelineEvents.map((event, idx) => (
-                        <Carousel.Item key={idx}>
-                            <div
-                                className="p-5 bg-dark text-light text-center d-flex flex-column justify-content-center align-items-center"
-                                style={{ height: "400px", overflowY: "auto" }}
+                            <Carousel className="pb-5 w-75 mx-auto"
+                                activeIndex={activeIndex}
+                                onSelect={handleSelect}
+                                indicators={false}
+                                interval={null}
+                                variant="dark"
+                                controls={false}
                             >
-                                <h3 className="text-purple">{event.title}</h3>
-                                <p className="text-secondary">{event.date}</p>
-                                <p style={{ maxHeight: "200px", overflowY: "auto" }}>
-                                    {event.description}
-                                </p>
-                            </div>
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
-            </Container>
+                                {timelineEvents.map((event, idx) => (
+                                    <Carousel.Item key={idx}>
+                                        <div
+                                            className="p-5 bg-dark text-light text-center d-flex flex-column justify-content-center align-items-center"
+                                            style={{ height: "400px", overflowY: "auto" }}
+                                        >
+                                            <h3 className="text-purple">{event.title}</h3>
+                                            <p className="text-secondary">{event.date}</p>
+                                            <p style={{ maxHeight: "200px", overflowY: "auto" }}>
+                                                {event.description}
+                                            </p>
+                                        </div>
+                                    </Carousel.Item>
+                                ))}
+                            </Carousel>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
             <Container>
                 <Row>
                     <h3>What I've Accomplished</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
                 </Row>
             </Container>
             <Container>
                 <Row>
                     <h3>What's Next?</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
                 </Row>
             </Container>
+
         </Container>
+
     );
 };

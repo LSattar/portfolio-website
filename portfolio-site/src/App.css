@@ -183,3 +183,10 @@ html, body, #root, .App {
   color: #f1e2ff !important;
   transition: color .3s ease;
 }
+
+.sticky{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
