@@ -13,12 +13,12 @@ type EducationCardProps = {
 
 export const EducationCard = ({title, description, date, location, school}: EducationCardProps) => {
     return(
-        <Card className='border-0 card-hover'>
+        <Card className='border-0 card-hover bg-transparent text-light'>
             <Row className='m-1'>
-                <Col className='text-start'>
-                <Card.Title>{title}</Card.Title>
+                <Col className='text-start' md={8}>
+                <Card.Title className='hover-underline-animation'>{title}</Card.Title>
                 <Card.Subtitle className='my-1'>{school}</Card.Subtitle>
-                <Card.Subtitle className='my-1 text-muted'>{location}</Card.Subtitle>
+                <Card.Subtitle className='my-1 text-secondary'>{location}</Card.Subtitle>
                 </Col>
                 <Col className='text-end m-1'>
                 <Card.Subtitle>{date}</Card.Subtitle>

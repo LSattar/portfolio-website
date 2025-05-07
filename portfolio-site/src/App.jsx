@@ -22,9 +22,9 @@ import { EducationCard } from './components/EducationCard'
 import Nav from 'react-bootstrap/Nav'
 
 const experience = [
- {
+    {
         title: "AWS DevSecOps Engineer",
-        description: "At SkillStorm, I was selected as a DevSecOps Engineer specializing in AWS, where I worked on projects for the Department of Veterans Affairs. During my time there, I developed a full-stack application for a CPA to track client work, using MySQL, Spring Boot, and React, all hosted on AWS. The training program was fast-paced and intensive, equipping me with practical experience in cloud deployment and secure development practices. Unfortunately, my time at SkillStorm was cut short due to project funding constraints.",
+        description: "At SkillStorm, I was selected as a DevSecOps Engineer specializing in AWS to work on projects for the Department of Veterans Affairs. During my time there, I developed a full-stack application for a CPA to track client work, using MySQL, Spring Boot, and React, all hosted on AWS. The training program was fast-paced and intensive, equipping me with practical experience in cloud deployment and secure development practices. Unfortunately, my time at SkillStorm was cut short due to project funding constraints.",
         date: "February 2025 - May 2025",
         location: "Lake Mary, FL (remote)",
         company: "SkillStorm"
@@ -62,7 +62,7 @@ const education = [
     }, {
         title: "Associate of Arts - Computer Science",
         date: "Aug 2021 - Dec 2022",
-        school: "Manchester Community college",
+        school: "Manchester Community College",
         location: "Manchester, CT"
     },
     {
@@ -79,59 +79,66 @@ function App() {
         const sectionIds = ["about", "experience", "projects", "education"];
         const observerOptions = {
             root: null,
-            rootMargin: "0px 0px -50% 0px",
-            threshold: 0.1,
+            threshold: Array.from({ length: 101 }, (_, i) => i / 100),
         };
-    
+
+        const visibleSections = new Map();
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setActiveSection(entry.target.id);
-                }
+                visibleSections.set(entry.target.id, entry.intersectionRatio);
             });
+
+            const mostVisible = [...visibleSections.entries()]
+                .sort((a, b) => b[1] - a[1])[0];
+
+            if (mostVisible && mostVisible[1] > 0.3) {
+                setActiveSection(mostVisible[0]);
+            }
         }, observerOptions);
-    
+
         sectionIds.forEach(id => {
             const el = document.getElementById(id);
             if (el) observer.observe(el);
         });
-    
+
         return () => observer.disconnect();
     }, []);
-    
+
+
     return (
-        <div className="App d-flex">
+        <div className="App d-flex bg-dark text-light">
             <Container fluid>
                 <Row>
                     <Col md={5} className='p-5'>
                         <Container>
                             <h1>Leah Sattar</h1>
-                            <p>Full Stack Developer<br />CompTIA Security+ Certified</p>
+                            <p className='text-purple'>Full Stack Developer<br />CompTIA Security+ Certified</p>
                             <h3>Welcome to my portfolio</h3>
                         </Container>
 
                         <Nav className="flex-column text-start ms-5">
                             <Nav.Item>
-                                <Nav.Link href="#about" active={activeSection === "about"} className="px-0">About</Nav.Link>
+                                <Nav.Link href="#about" active={activeSection === "about"} className="px-0 text-purple nav-link-custom ps-2">About</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link href="#experience" active={activeSection === "experience"} className="px-0">Experience</Nav.Link>
+                                <Nav.Link href="#experience" active={activeSection === "experience"} className="px-0  text-purple nav-link-custom ps-2">Experience</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link href="#projects" active={activeSection === "projects"} className="px-0">Projects</Nav.Link>
+                                <Nav.Link href="#projects" active={activeSection === "projects"} className="px-0  text-purple nav-link-custom ps-2">Projects</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link href="#education" active={activeSection === "education"} className="px-0">Education</Nav.Link>
+                                <Nav.Link href="#education" active={activeSection === "education"} className="px-0  text-purple nav-link-custom ps-2">Education</Nav.Link>
                             </Nav.Item>
                         </Nav>
 
-                        <Container className="pt-4 p-5 fixed-bottom text-start">
+                        <Container className="pt-4 p-5 fixed-bottom text-start text-purple">
                             <h2>
-                                <i className="bi bi-linkedin me-3"></i>
-                                <i className="bi bi-github me-3"></i>
-                                <i className="bi bi-facebook me-3"></i>
-                                <i className="bi bi-envelope-at-fill me-3"></i>
-                                <i className="bi bi-telephone-fill"></i>
+                                <a className="text-purple" href="https://www.linkedin.com/in/leah-sattar-666202230/" target="blank" ><i className="bi bi-linkedin me-3 social-icon"></i></a>
+                                <a className="text-purple" href="https://github.com/lsattar" target="blank" ><i className="bi bi-github me-3 social-icon"></i></a>
+                                <a className="text-purple" href="https://www.facebook.com/leah.sattar" target="blank" ><i className="bi bi-facebook me-3 social-icon"></i></a>
+                                <a className="text-purple" href="mailto:ljsattar@gmail.com"><i className="bi bi-envelope-at-fill me-3 social-icon"></i></a>
+                                <a className="text-purple" href="tel:+18608785719"><i className="bi bi-telephone-fill social-icon"></i></a>
                             </h2>
                         </Container>
                     </Col>
@@ -140,13 +147,13 @@ function App() {
                             <section id="about" className="mb-5">
                                 <h3>About Me</h3>
                                 <p>
-                                Nice to meet you! I'm Leah Sattar, a full-stack developer with a strong focus on security, DevOps, and building efficient, scalable solutions. I thrive on solving complex challenges and streamlining development processes across cloud platforms like AWS and Google Cloud Platform."
+                                    Nice to meet you! I'm Leah Sattar, a full-stack developer with a strong focus on security, DevOps, and building efficient, scalable solutions. I thrive on solving complex challenges and streamlining development processes across cloud platforms like <b className='text-purple'>Amazon Web Services</b> and <b className='text-purple'>Google Cloud Platform</b>.
                                 </p>
                                 <p>
-                                I've developed full-stack applications tailored to business needs while working with SkillStorm and Reliant HouseCalls, and I’ve performed data analysis using Epic Clarity and MySQL to inform better healthcare decisions.
+                                    I've developed full-stack applications tailored to business needs while working with SkillStorm and Reliant HouseCalls, and I’ve performed data analysis using <b className='text-purple'>Epic Clarity</b> and <b className='text-purple'>MySQL</b> to inform better healthcare decisions.
                                 </p>
                                 <p>
-                                Beyond the code, I enjoy spending time with my four cats, mastering Dance Dance Revolution, and experimenting in the kitchen.
+                                    Beyond coding, I enjoy spending time with my four cats, mastering Dance Dance Revolution, and experimenting in the kitchen.
                                 </p>
                             </section>
                             <section id="experience" className='mb-5'>
@@ -205,29 +212,6 @@ function App() {
                     </Col>
                 </Row>
             </Container>
-            { /*
-            <Router>
-                <NavBar />
-                <Routes>
-                    <Route path="/" element={<Index />} />
-                    <Route path="/about-me" element={<About />} />
-                    <Route path="/projects" element={<Projects />} />
-                </Routes>
-            </Router>
-            */
-            }
-
-
-
-            {/*
-                            <Container id="skills">
-                            <section className="mb-5">
-                                <h3>Skills</h3>
-                                <SkillAccordion />
-                            </section>
-                        </Container>
-                        */}
-
         </div>
     );
 }

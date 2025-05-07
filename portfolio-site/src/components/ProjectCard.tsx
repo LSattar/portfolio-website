@@ -12,11 +12,11 @@ type ProjectCardProps = {
 
 export const ProjectCard = ({title, description, date, company}: ProjectCardProps) => {
     return(
-        <Card className='border-0 card-hover'>
+        <Card className='border-0 card-hover bg-transparent text-light'>
             <Row className='m-1'>
                 <Col className='text-start'>
-                <Card.Title>{title}</Card.Title>
-                <Card.Subtitle className = "my-1">{company}</Card.Subtitle>
+                <Card.Title className='hover-underline-animation'>{title}</Card.Title>
+                <Card.Subtitle className = "my-1 text-secondary">{company}</Card.Subtitle>
                 </Col>
                 <Col className='text-end m-1'>
                 <Card.Subtitle>{date}</Card.Subtitle>

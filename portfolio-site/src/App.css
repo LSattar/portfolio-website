@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: #212529;
+  background-image: radial-gradient(rgba(255, 0, 255, 0.2) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-color: #e5e5f7;
 }
 
 .App-logo {
@@ -74,9 +78,38 @@
   overflow-y: auto;
 }
 
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #cb7cff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
 .card-hover:hover {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 .5rem .5rem rgba(255, 0, 255, 0.25);
   transition: box-shadow 0.3s ease;
+  background-color: #3a3f4b67 !important;
+}
+
+.card-hover:hover .card-title {
+  color: #cb7cff !important;
+  transition: .2s ease;
+}
+
+.card-hover:hover .hover-underline-animation::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .scrollable-column p {
@@ -92,6 +125,10 @@
 h3{
   padding-top:.5em;
   padding-bottom: .5em;
+}
+
+.text-purple{
+  color: #cb7cff !important;
 }
 
 .sticky-sidebar {
@@ -114,7 +151,6 @@ html, body, #root, .App {
 
 .sidebar {
   width: 320px;
-  background-color: #f8f9fa;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -130,4 +166,25 @@ html, body, #root, .App {
 
 .main-content section {
   scroll-margin-top: 80px;
+}
+
+.social-icon {
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  color: #f1e2ff;
+}
+
+.nav-link-custom.active {
+  color: #f1e2ff !important;
+  font-weight: bold;
+  border-left: 4px solid #cc66ff;
+  transition: .2s ease-in-out;
+}
+
+.nav-link-custom:hover{
+  color: #f1e2ff !important;
+  transition: color .3s ease;
 }
