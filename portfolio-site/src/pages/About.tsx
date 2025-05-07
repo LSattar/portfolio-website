@@ -7,6 +7,7 @@ import { Carousel, Button, ToggleButton, ButtonGroup } from 'react-bootstrap';
 import { useState } from "react";
 import Image from 'react-bootstrap/Image';
 import placeholderImg from '../images/placeholder.jpg';
+import catImg from '../images/cat.png'
 
 
 
@@ -68,70 +69,95 @@ export const About = () => {
     };
 
     return (
-        <Container>
-            <h3>About Me</h3>
-                                <div className="d-flex flex-nowrap">
-                                    {timelineEvents.map((event, index) => (
-                                        <ToggleButton
-                                            className="me-2 ms-2"
-                                            key={index}
-                                            id={`timeline-${index}`}
-                                            type="radio"
-                                            variant="outline-light"
-                                            name="timeline"
-                                            value={String(index)}
-                                            checked={radioValue === String(index)}
-                                            onChange={(e) => {
-                                                const newIndex = Number(e.currentTarget.value);
-                                                setActiveIndex(newIndex);
-                                                setRadioValue(e.currentTarget.value);
-                                            }}
-                                        >
-                                            {event.date}
-                                        </ToggleButton>
-                                    ))}
-                                </div>
+        <Container className="pt-5">
+            <Row>
+                <Col md={6}><h3>About Me</h3>
+                    <p>Thanks for taking the time to get to know a bit more about me. Where do I start?</p>
+                    <p>I've been working fulltime in healthcare administration since I was 19, and returned back to school when I was 21. Juggling being a fulltime student and a fulltime working put my multi-tasking, prioritization, and determination into test.</p>
+                    <p>I love working in tech because I get to solve large problems with innovative solutions while giving my brain a nice workout. Being surrounded by nurses and doctors during the COVID-19 pandemic inspired me to want to do big things, and my dream is to make my ideas shape the world, or at least improve some lives.</p>
+                    <p>It's probably no surprise that someone who is working in IT is into video games, but I feel that it deserves a mention. In particular, I love Dance Dance Revolution and Pump it Up. Getting into arcade gaming not only helps me keep in shape, but it has also brought me to some of my best friends and taken me out of my comfort zone. Besides that, I am a huge fan of the Elder Scrolls Games as well as Baldur's Gate. Anything that can get me immersed in a different world is a big draw to me.</p>
+                    <p>Food is my love language and being able to bake for my friends and family brings me so much joy. I worked briefly at Crumbl Cookie during my last semester in Connecticut where I learned many new techniques to up my baking game. I've made everything from multi-layer cakes, macarons, royal icing cookies, and home made ice cream. Food is how I express myself and I love how food creates an experience and memories for those who get to consume it.</p>
+                </Col>
+                <Col md={6}>
+                    <div
+                        style={{
+                            maxHeight: '400px',
+                            width: '100%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        <Image
+                            src={placeholderImg}
+                            style={{
+                                maxHeight: '100%',
+                                maxWidth: '100%',
+                                objectFit: 'contain',
+                            }}
+                            fluid
+                        />
+                    </div>
+                </Col>
 
-                            <Carousel className="pb-5 w-75 mx-auto"
-                                activeIndex={activeIndex}
-                                onSelect={handleSelect}
-                                indicators={false}
-                                interval={null}
-                                variant="dark"
-                                controls={false}
+            </Row>
+            <Row>
+                <h3>My Story</h3>
+                <p>Truth be told, until relatively recently, I never really saw myself working in computer science. It wasn't until I was put into real world situations where I saw the need to use these skills to solve real problems. I am so lucky and grateful that I was able to find work that sparked my passion and drove me into the field I love so dearly.</p>
+                <p>My journey has been full of high, lows, hardwork, sleepless nights, joyous celebrations, and everything in between. I am incredibly proud of what I've done to get here, and I can't wait to see what the future holds in store for me.</p>
+                <div className="d-flex flex-nowrap">
+                    {timelineEvents.map((event, index) => (
+                        <ToggleButton
+                            className="me-2 ms-2"
+                            key={index}
+                            id={`timeline-${index}`}
+                            type="radio"
+                            variant="outline-light"
+                            name="timeline"
+                            value={String(index)}
+                            checked={radioValue === String(index)}
+                            onChange={(e) => {
+                                const newIndex = Number(e.currentTarget.value);
+                                setActiveIndex(newIndex);
+                                setRadioValue(e.currentTarget.value);
+                            }}
+                        >
+                            {event.date}
+                        </ToggleButton>
+                    ))}
+                </div>
+                <Carousel className="pb-5 w-75 mx-auto"
+                    activeIndex={activeIndex}
+                    onSelect={handleSelect}
+                    indicators={false}
+                    interval={null}
+                    variant="dark"
+                    controls={false}
+                >
+                    {timelineEvents.map((event, idx) => (
+                        <Carousel.Item key={idx}>
+                            <div
+                                className="p-5 bg-dark text-light text-center d-flex flex-column justify-content-center align-items-center"
+                                style={{ height: "400px", overflowY: "auto" }}
                             >
-                                {timelineEvents.map((event, idx) => (
-                                    <Carousel.Item key={idx}>
-                                        <div
-                                            className="p-5 bg-dark text-light text-center d-flex flex-column justify-content-center align-items-center"
-                                            style={{ height: "400px", overflowY: "auto" }}
-                                        >
-                                            <h3 className="text-purple">{event.title}</h3>
-                                            <p className="text-secondary">{event.date}</p>
-                                            <p style={{ maxHeight: "200px", overflowY: "auto" }}>
-                                                {event.description}
-                                            </p>
-                                        </div>
-                                    </Carousel.Item>
-                                ))}
-                            </Carousel>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
-            <Container>
-                <Row>
-                    <h3>What I've Accomplished</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
-                </Row>
-            </Container>
-            <Container>
-                <Row>
-                    <h3>What's Next?</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
-                </Row>
-            </Container>
+                                <h3 className="text-purple">{event.title}</h3>
+                                <p className="text-secondary">{event.date}</p>
+                                <p style={{ maxHeight: "200px", overflowY: "auto" }}>
+                                    {event.description}
+                                </p>
+                            </div>
+                        </Carousel.Item>
+                    ))}
+                </Carousel>
+            </Row>
+            <Row>
+                <h3>What I've Accomplished</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
+            </Row>
+            <Row>
+                <h3>What's Next?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
+            </Row>
 
         </Container>
 
