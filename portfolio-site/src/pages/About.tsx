@@ -4,11 +4,14 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Carousel, Button, ToggleButton, ButtonGroup } from 'react-bootstrap';
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from 'react-bootstrap/Image';
 import placeholderImg from '../images/placeholder.jpg';
 import catImg from '../images/cat.png'
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { Link } from "react-router-dom";
+import secPlusImg from '../images/sec-plus-white.png'
+import  Counter  from '../components/Counter'
 
 
 
@@ -71,6 +74,7 @@ const timelineEvents = [
 ];
 
 export const About = () => {
+
     const [activeIndex, setActiveIndex] = useState(0);
     const [radioValue, setRadioValue] = useState('0');
 
@@ -81,6 +85,7 @@ export const About = () => {
 
     return (
         <Container className="pt-5">
+            <Link to="/" className="text-purple fw-bold">← Back</Link>
             <Row>
                 <Col md={6}><h3>About Me</h3>
                     <p>Thanks for taking the time to get to know a bit more about me. Where do I start?</p>
@@ -162,10 +167,7 @@ export const About = () => {
                     ))}
                 </Carousel>
             </Row>
-            <Row>
-                <h3>What I've Accomplished</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
-            </Row>
+
             <Row>
                 <h3>What's Next?</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>

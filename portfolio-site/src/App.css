@@ -190,3 +190,8 @@ html, body, #root, .App {
   height: 100vh;
   overflow-y: auto;
 }
+
+.stat {
+  font-size: 8em;
+  font-weight: bolder;
+}
