@@ -48,7 +48,7 @@ const Counter: React.FC<CounterProps> = ({ target, duration = 2000, suffix }) =>
   }, [target, duration]);
 
   return (
-    <div className='stat' ref={counterRef}>
+    <div className='stat color-change' ref={counterRef}>
       {count}{suffix}
     </div>
   );

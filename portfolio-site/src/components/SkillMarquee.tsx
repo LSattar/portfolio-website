@@ -22,7 +22,7 @@ const skills = [
 
 export const SkillMarquee = () => {
     return (
-      <div className="skills-marquee-container">
+      <div className="skills-marquee-container background-gradient">
         <div className="skills-marquee-track">
           {skills.concat(skills).map((skill, idx) => (
             <div key={idx} className="skill-item">

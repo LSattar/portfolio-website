@@ -11,7 +11,7 @@ import catImg from '../images/cat.png'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from "react-router-dom";
 import secPlusImg from '../images/sec-plus-white.png'
-import  Counter  from '../components/Counter'
+import Counter from '../components/Counter'
 
 
 
@@ -84,7 +84,7 @@ export const About = () => {
     };
 
     return (
-        <Container className="pt-5">
+        <Container className="pt-5 pb-5 fadeIn">
             <Link to="/" className="text-purple purple-link fw-bold">← Back</Link>
             <Row>
                 <Col md={6}><h3>About Me</h3>
@@ -124,7 +124,7 @@ export const About = () => {
                 <div className="d-flex flex-nowrap">
                     {timelineEvents.map((event, index) => (
                         <ToggleButton
-                            className="me-2 ms-2"
+                            className={`me-2 ms-2 border-0 ${radioValue === String(index) ? 'btn-pink-active' : ''}`}
                             key={index}
                             id={`timeline-${index}`}
                             type="radio"
@@ -153,7 +153,7 @@ export const About = () => {
                     {timelineEvents.map((event, idx) => (
                         <Carousel.Item key={idx}>
                             <div
-                                className="p-5 bg-dark text-light text-center d-flex flex-column justify-content-center align-items-center"
+                                className="p-5 text-light text-center d-flex flex-column justify-content-center align-items-center"
                                 style={{ height: "500px", overflowY: "auto" }}
                             >
                                 <i className={`bi ${event.icon} fs-1 mb-3 text-purple`}></i>
@@ -170,7 +170,7 @@ export const About = () => {
 
             <Row>
                 <h3>What's Next?</h3>
-                <p>Like many new grads and junior developers, I am eager to sink my teeth in and continue learning more.</p>
+                <p>Like many new grads and junior developers, I am eager to sink my teeth in and continue learning more. I love working in cybersecurity, backend development, and database development, particularly in the healthcare industry. However, I am ready and willing to learn anything anyone has to throw at me.</p>
             </Row>
 
         </Container>

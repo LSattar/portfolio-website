@@ -66,23 +66,23 @@ export const Projects = () => {
     };
 
     return (
-        <Container className="pt-5">
+        <Container className="pt-5 fadeIn">
             <Link to="/" className="text-purple fw-bold">← Back</Link>
             <h3>Projects</h3>
             <p>Welcome to my projects page! I am lucky to have been able to work on a variety of meaningful projects that involve backend, frontend, database development, and everything in between!</p>
             <Row>
                 <h3>My Impact</h3>
-                <Row className="text-center text-purple">
+                <Row className="text-center text-purple color-change">
                     <Col md={4} >
                         <div><Counter target={100} suffix={'+'}></Counter></div>
-                        <p>Hours Saved Monthly</p>
+                        <p className="stat-label color-change">Hours Saved Monthly</p>
                     </Col>
                     <Col md={4}><div><Counter target={300} suffix={'k+'}></Counter></div>
-                        <p>Business Transactions Analyzed</p>
+                        <p className="stat-label color-change">Business Transactions Analyzed</p>
                     </Col>
                     <Col md={4}>
                         <div><Counter target={500} suffix={'%'}></Counter></div>
-                        <p>Efficiency Boost</p>
+                        <p className="stat-label color-change">Efficiency Boost</p>
                     </Col>
                 </Row>
             </Row>

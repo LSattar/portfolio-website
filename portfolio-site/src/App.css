@@ -288,3 +288,39 @@ html, body, #root, .App {
 #social-icons{
   padding-left: 20% !important;
 }
+
+.btn-pink-active {
+  color: #fb7cff !important;
+  background-color:#21252900 !important;
+  font-weight: bold !important;
+}
+
+.stat-label {
+  font-weight: bold;
+}
+
+@keyframes colorChange {
+  from {
+    color: #fb7cff;
+  }
+  to {
+    color: #cb7cff; 
+  }
+}
+
+.text-pink{
+  color: #fb7cff !important;
+}
+
+.color-change{
+  animation: colorChange 2s infinite alternate;
+}
+
+.background-gradient {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}

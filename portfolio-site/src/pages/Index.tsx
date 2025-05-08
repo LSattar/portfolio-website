@@ -129,7 +129,7 @@ export const Index = () => {
                             <Container className='sticky p-5'>
                                 <Container>
                                 <h1>Leah Sattar</h1>
-                                <p className='text-purple'>Full Stack Developer<br />CompTIA™ Security+ Certified</p>
+                                <p className='text-purple'>Full Stack Developer<br /><span className='text-pink'>CompTIA™ Security+ Certified</span></p>
                                 <h3>Welcome to my portfolio</h3>
                             </Container>
 
