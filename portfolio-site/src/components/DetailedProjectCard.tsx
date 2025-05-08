@@ -31,12 +31,12 @@ export const DetailedProjectCard = ({
                     style={{ objectFit: 'contain', maxHeight: '150px', filter: 'invert(1) brightness(2)'}}
                 />
             )}
-            <Row className="m-1">
+            <Row className="m-1" md={12}>
                 <Col className="text-start">
                     <Card.Title className="text-purple">{title}</Card.Title>
                     <Card.Subtitle className="my-1 text-secondary">{company}</Card.Subtitle>
                 </Col>
-                <Col className="text-end m-1">
+                <Col className="text-start text-lg-end m-lg-1 mt-1" md={12}>
                     <Card.Subtitle>{date}</Card.Subtitle>
                 </Col>
             </Row>

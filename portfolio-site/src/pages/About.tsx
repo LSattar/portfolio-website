@@ -6,14 +6,14 @@ import Col from 'react-bootstrap/Col';
 import { Carousel, Button, ToggleButton, ButtonGroup } from 'react-bootstrap';
 import { useState, useRef, useEffect } from "react";
 import Image from 'react-bootstrap/Image';
-import placeholderImg from '../images/placeholder.jpg';
+import headshotImg from '../images/headshot1.jpg';
 import catImg from '../images/cat.png'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from "react-router-dom";
 import secPlusImg from '../images/sec-plus-white.png'
 import Counter from '../components/Counter'
-
-
+import { SocialIcons } from "../components/SocialIcons";
+import { TimelineCarousel } from '../components/TimelineCarousel'
 
 
 const timelineEvents = [
@@ -83,96 +83,52 @@ export const About = () => {
         setRadioValue(String(selectedIndex));
     };
 
+    const scrollRef = useRef<HTMLDivElement | null>(null);
+
+    const scrollTimeline = (offset: number) => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollBy({
+                left: offset,
+                behavior: 'smooth',
+            });
+        }
+    };
+
     return (
         <Container className="pt-5 pb-5 fadeIn">
             <Link to="/" className="text-purple purple-link fw-bold">← Back</Link>
             <Row>
-                <Col md={6}><h3>About Me</h3>
+                <Col md={12} lg={6}>
+                    <h3>About Me</h3>
                     <p>Thanks for taking the time to get to know a bit more about me. <em>Where do I start?</em></p>
                     <p>I've been working fulltime in healthcare administration since I was 19, and returned back to school when I was 21. Juggling being a full-time student and a full-time working put my multi-tasking, prioritization, and determination to the test.</p>
                     <p>I love working in tech because I get to solve large problems by creating innovative solutions, all while giving my brain a nice workout. Being surrounded by nurses and doctors during the COVID-19 pandemic inspired me to want to do big things, and my dream is for my ideas to shape the world, or at least improve some lives.</p>
-                    <p>It's probably no surprise that someone who is working in IT is into video games, but I feel that it deserves a mention. In particular, I love Dance Dance Revolution and <a href="https://youtu.be/qEMGxnC6Mfg?si=ruN8gQ_GPJGnfHLw" target="blank" className="purple-link">Pump it Up</a>. Arcade gaming not only helps me keep in shape, but it has also brought me to some of my best friends, and taken me out of my comfort zone. Besides that, I am a huge fan of the Elder Scrolls Games as well as Baldur's Gate. Anything that can get me immersed in a different world is a big draw to me.</p>
-                    <p>Food is my love language and being able to bake for my friends and family brings me so much joy. I worked briefly at Crumbl Cookie during my last months in Connecticut, where I learned many new techniques to up my baking game. I've made everything from multi-layer cakes, macarons, royal icing cookies, and home made ice cream. Food is how I express myself, and I love how my food creates an experience and memories for those who get to consume it.</p>
+                    <p>In my spare time, you can often find me playing video games. Whether it's Dance Dance Revolution, Pump It Up, or getting lost in the worlds of the Elder Scrolls, I love playing games with or alongside my friends. When I'm not gaming, I'm in the kitchen experimenting with bakes and desserts, from macarons and multi-tier cakes to cannolis and homemade ice cream. And of course, I share my space (and sometimes my keyboard) with four wonderful cats who keep me grounded, entertained, and always covered in just a little bit of fur.</p>
                 </Col>
-                <Col md={6}>
-                    <div
-                        style={{
-                            maxHeight: '400px',
-                            width: '100%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                        }}
-                    >
+                <Col md={12} lg={6} className="d-flex justify-content-center align-items-center">
+                    <div id="headshot-container">
                         <Image
-                            src={placeholderImg}
-                            style={{
-                                maxHeight: '100%',
-                                maxWidth: '100%',
-                                objectFit: 'contain',
-                            }}
-                            fluid
+                            src={headshotImg}
+                            alt="Headshot"
+                            className="headshot-img"
                         />
+                        <div className="middle">
+                            <SocialIcons />
+                        </div>
                     </div>
                 </Col>
 
             </Row>
             <Row>
-                <h3>My Story</h3>
-                <p>Truth be told, until relatively recently, I never really saw myself working in computer science. It wasn't until I was put into real world situations where I saw the need to use these skills to solve real problems. I am so lucky and grateful that I was able to find work that sparked my passion and drove me into the field I love so dearly.</p>
-                <p>My journey has been full of high, lows, hardwork, sleepless nights, joyous celebrations, and everything in between. I am incredibly proud of what I've done to get here, and I can't wait to see what the future holds in store for me.</p>
-                <div className="d-flex flex-nowrap">
-                    {timelineEvents.map((event, index) => (
-                        <ToggleButton
-                            className={`me-2 ms-2 border-0 ${radioValue === String(index) ? 'btn-pink-active' : ''}`}
-                            key={index}
-                            id={`timeline-${index}`}
-                            type="radio"
-                            variant="outline-light"
-                            name="timeline"
-                            value={String(index)}
-                            checked={radioValue === String(index)}
-                            onChange={(e) => {
-                                const newIndex = Number(e.currentTarget.value);
-                                setActiveIndex(newIndex);
-                                setRadioValue(e.currentTarget.value);
-                            }}
-                        >
-                            {event.date}
-                        </ToggleButton>
-                    ))}
-                </div>
-                <Carousel className="pb-5 w-75 mx-auto"
-                    activeIndex={activeIndex}
-                    onSelect={handleSelect}
-                    indicators={false}
-                    interval={null}
-                    variant="dark"
-                    controls={false}
-                >
-                    {timelineEvents.map((event, idx) => (
-                        <Carousel.Item key={idx}>
-                            <div
-                                className="p-5 text-light text-center d-flex flex-column justify-content-center align-items-center"
-                                style={{ height: "500px", overflowY: "auto" }}
-                            >
-                                <i className={`bi ${event.icon} fs-1 mb-3 text-purple`}></i>
-                                <h3 className="text-purple">{event.title}</h3>
-                                <p className="text-secondary">{event.date}</p>
-                                <p style={{ maxHeight: "200px", overflowY: "auto" }}>
-                                    {event.description}
-                                </p>
-                            </div>
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
+                <h3>My Journey</h3>
+                <p>Truth be told, I didn’t always envision myself working in computer science. It wasn’t until I found myself in real-world situations. When faced with inefficiencies, data challenges, and the need for creative problem-solving, I realized how much I loved using technology to make things better. Discovering this passion gave me direction, and I’m so grateful for the path it’s opened up for me.</p> 
+                <p>My journey has been anything but linear. It’s been shaped by hard work, late nights, small wins, big lessons, and the belief that each step, even the unexpected ones, has helped me grow. Here’s a look at how I got here.</p>
+                <TimelineCarousel timelineEvents={timelineEvents}></TimelineCarousel>
             </Row>
-
             <Row>
                 <h3>What's Next?</h3>
-                <p>Like many new grads and junior developers, I am eager to sink my teeth in and continue learning more. I love working in cybersecurity, backend development, and database development, particularly in the healthcare industry. However, I am ready and willing to learn anything anyone has to throw at me.</p>
+                <p>I'm actively seeking opportunities where I can grow as a developer and contribute to meaningful, impactful work. I'm especially interested in roles related to cybersecurity, backend engineering, or database design. In an ideal world, I would love to continue within industries like healthcare, where technology directly improves lives. That said, I'm always excited to learn something new, take on challenges outside my comfort zone, and continue building tools that make a difference.</p>
             </Row>
-
         </Container>
 
     );

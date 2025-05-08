@@ -70,17 +70,18 @@ export const Projects = () => {
             <Link to="/" className="text-purple fw-bold">← Back</Link>
             <h3>Projects</h3>
             <p>Welcome to my projects page! I am lucky to have been able to work on a variety of meaningful projects that involve backend, frontend, database development, and everything in between!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in enim lectus. Proin maximus sed metus id cursus. Ut ultricies finibus urna eu pretium. Aenean mattis, ipsum eu sagittis placerat, mi metus bibendum tortor, aliquam sollicitudin est augue id sem. Phasellus at felis tincidunt, ornare tellus quis, suscipit metus. Curabitur blandit tellus eu neque blandit semper. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
             <Row>
-                <h3>My Impact</h3>
+                <h3 className="text-center text-xl-start">My Impact</h3>
                 <Row className="text-center text-purple color-change">
-                    <Col md={4} >
+                    <Col xl={4} xs={12} className="" >
                         <div><Counter target={100} suffix={'+'}></Counter></div>
                         <p className="stat-label color-change">Hours Saved Monthly</p>
                     </Col>
-                    <Col md={4}><div><Counter target={300} suffix={'k+'}></Counter></div>
+                    <Col xl={4} xs={12} className=""><div><Counter target={300} suffix={'k+'}></Counter></div>
                         <p className="stat-label color-change">Business Transactions Analyzed</p>
                     </Col>
-                    <Col md={4}>
+                    <Col xl={4} xs={12} className="">
                         <div><Counter target={500} suffix={'%'}></Counter></div>
                         <p className="stat-label color-change">Efficiency Boost</p>
                     </Col>
@@ -90,7 +91,10 @@ export const Projects = () => {
                 <h3>My Projects</h3>
                 <Row>
                     {projects.map((project, index) => (
-                        <Col key={index} md={4} className="mb-4">
+                        <Col key={index}
+                        xs={12}      
+                        md={6} 
+                        xl={4}        className="mb-4 ">
                             <DetailedProjectCard
                                 title={project.title}
                                 description={project.description}
@@ -102,7 +106,6 @@ export const Projects = () => {
                         </Col>
                     ))}
                 </Row>
-
             </Row>
         </Container>
 

@@ -21,6 +21,7 @@ import { EducationCard } from '../components/EducationCard'
 import Nav from 'react-bootstrap/Nav'
 import { Link } from 'react-router-dom'
 import { SkillMarquee } from '../components/SkillMarquee'
+import { SocialIcons } from '../components/SocialIcons';
 
 const experience = [
     {
@@ -124,16 +125,17 @@ export const Index = () => {
         <div className="App d-flex bg-dark text-light fadeIn">
             <Container>
                 <Row>
-                    <Col md={5} className='h-100 mw-100 sticky'>
+                    <Col md={5} xs={12} className='h-100 mw-100 sticky'>
                         <Container id="sidebar-content">
-                            <Container className='sticky p-5'>
+                            <Container className='sticky p-3 p-md-5 text-center text-md-start'>
                                 <Container>
                                 <h1>Leah Sattar</h1>
                                 <p className='text-purple'>Full Stack Developer<br /><span className='text-pink'>CompTIA™ Security+ Certified</span></p>
-                                <h3>Welcome to my portfolio</h3>
-                            </Container>
+                                <Container className='d-block d-md-none text-center text-md-start'><SocialIcons></SocialIcons></Container>
+                                <h3 className='d-none d-lg-block'>Welcome to my portfolio</h3>
+                                </Container>
 
-                                <Nav className="flex-column text-start ms-5 w-25">
+                                <Nav className="flex-column text-start ms-5 w-25 d-none d-md-block">
                                     <Nav.Item>
                                         <Nav.Link href="#about" active={activeSection === "about"} className="px-0 text-purple nav-link-custom ps-2">About</Nav.Link>
                                     </Nav.Item>
@@ -147,21 +149,11 @@ export const Index = () => {
                                         <Nav.Link href="#education" active={activeSection === "education"} className="px-0  text-purple nav-link-custom ps-2">Education</Nav.Link>
                                     </Nav.Item>
                                 </Nav></Container>
-
-
-                            <Container className="p-5 position-fixed bottom-0 start-0 p-2 bg-transparent text-light rounded w-auto" id='social-icons'>
-                                <h2>
-                                    <a className="text-purple" href="https://www.linkedin.com/in/leah-sattar-666202230/" target="blank" ><i className="bi bi-linkedin me-3 social-icon"></i></a>
-                                    <a className="text-purple" href="https://github.com/lsattar" target="blank" ><i className="bi bi-github me-3 social-icon"></i></a>
-                                    <a className="text-purple" href="https://www.facebook.com/leah.sattar" target="blank" ><i className="bi bi-facebook me-3 social-icon"></i></a>
-                                    <a className="text-purple" href="mailto:ljsattar@gmail.com"><i className="bi bi-envelope-at-fill me-3 social-icon"></i></a>
-                                    <a className="text-purple" href="tel:+18608785719"><i className="bi bi-telephone-fill social-icon"></i></a>
-                                </h2>
-                            </Container>
+                                <Container  className="p-5 position-fixed bottom-0 start-0 p-2 bg-transparent text-light rounded w-auto d-none d-md-block" id='social-icons'> <SocialIcons></SocialIcons></Container>
                         </Container>
                     </Col>
-                    <Col md={7}>
-                        <main className="main-content flex-grow-1 overflow-auto p-5 fadeInLong" id="main-content">
+                    <Col md={7} xs={12}>
+                        <main className="main-content flex-grow-1 overflow-auto p-2 p-md-5 fadeInLong" id="main-content">
                             <section id="about" className="mb-5">
                                 <h3>About Me</h3>
                                 <p>
@@ -229,9 +221,10 @@ export const Index = () => {
                                     ))}
                                 </Row>
                                 <hr></hr>
-                                <p className='pt-3'>Thank you to <a href="https://freedns.afraid.org/" target="blank" className='purple-link'>FreeDNS </a> 
+                                <p className='pt-3 text-center text-xxl-start'>Thank you to <a href="https://freedns.afraid.org/" target="blank" className='purple-link'>FreeDNS </a> 
                                  | Hosted on <a href="https://www.digitalocean.com/" target='blank' className='purple-link'>Digital Ocean </a> 
                                  | Icons from <a href="https://www.flaticon.com/" target='blank' className='purple-link'>Flaticons</a> and <a href="https://www.icons8.com" target='blank' className='purple-link'>Icons8</a></p>
+                                 <Container className='d-block d-md-none text-center text-md-start'><p>Let's get in touch!</p><SocialIcons></SocialIcons></Container>
                             </section>
                         </main>
                     </Col>

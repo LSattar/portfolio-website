@@ -213,11 +213,13 @@ html, body, #root, .App {
   transition: color .3s ease;
 }
 
-.sticky{
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
+@media (min-width:768px){
+  .sticky{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
 }
 
 .bottom-sticky{
@@ -323,4 +325,98 @@ html, body, #root, .App {
   mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
+}
+
+#headshot-container, #small-headshot-container {
+  position: relative;
+  width: 400px;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  border-radius: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.headshot-img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10%;
+}
+
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.2s ease-in-out;
+  width: 100%;     
+  text-align: center; 
+}
+
+
+
+#headshot-container:hover .headshot-img, #small-headshot-container:hover .headshot-img{
+  opacity: 0.2;
+  transition: 0.2s ease-in-out;
+}
+
+.middle {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s ease-in-out;
+  z-index: 2;
+  align-items: center !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+#headshot-container:hover .middle, #small-headshot-container:hover .middle {
+  opacity: 1;
+}
+
+@media (max-width: 768px){
+  .x-scroll-hidden{
+    overflow-x: hidden;
+  }
+}
+
+
+#about-row{
+  overflow: hidden !important;
+}
+
+#carousel-item{
+  @media(max-width: 768px){
+    height: 450px;
+  }
+
+  @media(min-width: 769px){
+    height: 350px;
+  }
+}
+
+@media (min-width: 990px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none !important;
+  }
+}
+
+#timeline-buttons{
+  @media(max-width:989px){
+    display: none;
+  }
 }
