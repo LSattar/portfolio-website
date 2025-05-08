@@ -58,6 +58,29 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.fadeInLong{
+  animation-delay: 1s;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.fadeInExtraLong{
+  animation-delay: 2s;
+  animation: fadeIn 3s ease-in-out;
+}
+
 .fadeInRight {
   animation: fadeInRight 1s ease-in-out;
 }
@@ -107,6 +130,11 @@
   transition: .2s ease;
 }
 
+.card-hover:hover .card-subtitle{
+  color:#fb7cff !important;
+  transition: .2s ease;
+}
+
 .card-hover:hover .hover-underline-animation::after {
   transform: scaleX(1);
   transform-origin: bottom left;
@@ -142,6 +170,7 @@ html, body, #root, .App {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .App {
@@ -191,7 +220,71 @@ html, body, #root, .App {
   overflow-y: auto;
 }
 
+.bottom-sticky{
+  position: sticky;
+  bottom: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
 .stat {
   font-size: 8em;
   font-weight: bolder;
+}
+
+.skill-button{
+  background-color: #cb7cff4f !important;
+}
+
+.skills-marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: transparent;
+}
+
+.skills-marquee-track {
+  display: inline-flex;
+  animation: scroll-marquee 20s linear infinite;
+  gap: 3rem;
+  align-items: center;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  min-width: 80px;
+}
+
+.skill-item img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.purple-link{
+  color:#cb7cff !important;
+}
+
+.purple-link:hover{
+  text-decoration: underline;
+  color: #fb7cff !important;
+  transition: .15s ease;
+}
+
+#social-icons{
+  padding-left: 20% !important;
 }

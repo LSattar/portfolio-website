@@ -6,26 +6,35 @@ import Col from 'react-bootstrap/Col'
 type ExperienceCardProps = {
     title: string;
     description:string;
-    company: string;
+    company?: string;
     date: string;
     location: string;
+    skills: string[];
 }
 
-export const ExperienceCard = ({title, description, date, location, company}: ExperienceCardProps) => {
+export const ExperienceCard = ({title, description, date, location, company, skills}: ExperienceCardProps) => {
     return(
         <Card className='border-0 card-hover bg-transparent text-light'>
             <Row className='m-1'>
-                <Col className='text-start'>
+                <Col className='text-start' md={8}>
                 <Card.Title className='hover-underline-animation'>{title}</Card.Title>
                 <Card.Subtitle className='my-1'>{company}</Card.Subtitle>
                 <Card.Subtitle className='my-1 text-secondary'>{location}</Card.Subtitle>
-                </Col>
+                </Col >
                 <Col className='text-end m-1'>
                 <Card.Subtitle>{date}</Card.Subtitle>
                 </Col>
             </Row>
             <Card.Body className='text-start'>
-            <Card.Text>{description}</Card.Text>
+            <Card.Text>
+                    {description}
+                    <br />
+                    {skills.map((skill, index) => (
+                        <Button key={index} className="me-2 mt-2 skill-button border-0 rounded-4 p-2" size="sm" disabled>
+                            {skill}
+                        </Button>
+                    ))}
+                </Card.Text>
             </Card.Body>
         </Card>
     )

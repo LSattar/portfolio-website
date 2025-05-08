@@ -69,7 +69,7 @@ const timelineEvents = [
         date: "April 2025",
         title: "Security+ Certified",
         icon: "bi-patch-check",
-        description: `In order to advance my career and sharpen my cybersecurity foundation, I pursued the CompTIA Security+ certification. After three intense weeks of studying and memorizing more acronyms than I thought could possibly exist, I earned my first official IT certification`
+        description: `In order to advance my career and sharpen my cybersecurity foundation, I pursued the CompTIA™ Security+ certification. After three intense weeks of studying and memorizing more acronyms than I thought could possibly exist, I earned my first official IT certification`
     }
 ];
 
@@ -85,14 +85,14 @@ export const About = () => {
 
     return (
         <Container className="pt-5">
-            <Link to="/" className="text-purple fw-bold">← Back</Link>
+            <Link to="/" className="text-purple purple-link fw-bold">← Back</Link>
             <Row>
                 <Col md={6}><h3>About Me</h3>
-                    <p>Thanks for taking the time to get to know a bit more about me. Where do I start?</p>
-                    <p>I've been working fulltime in healthcare administration since I was 19, and returned back to school when I was 21. Juggling being a fulltime student and a fulltime working put my multi-tasking, prioritization, and determination into test.</p>
-                    <p>I love working in tech because I get to solve large problems with innovative solutions while giving my brain a nice workout. Being surrounded by nurses and doctors during the COVID-19 pandemic inspired me to want to do big things, and my dream is to make my ideas shape the world, or at least improve some lives.</p>
-                    <p>It's probably no surprise that someone who is working in IT is into video games, but I feel that it deserves a mention. In particular, I love Dance Dance Revolution and Pump it Up. Getting into arcade gaming not only helps me keep in shape, but it has also brought me to some of my best friends and taken me out of my comfort zone. Besides that, I am a huge fan of the Elder Scrolls Games as well as Baldur's Gate. Anything that can get me immersed in a different world is a big draw to me.</p>
-                    <p>Food is my love language and being able to bake for my friends and family brings me so much joy. I worked briefly at Crumbl Cookie during my last semester in Connecticut where I learned many new techniques to up my baking game. I've made everything from multi-layer cakes, macarons, royal icing cookies, and home made ice cream. Food is how I express myself and I love how food creates an experience and memories for those who get to consume it.</p>
+                    <p>Thanks for taking the time to get to know a bit more about me. <em>Where do I start?</em></p>
+                    <p>I've been working fulltime in healthcare administration since I was 19, and returned back to school when I was 21. Juggling being a full-time student and a full-time working put my multi-tasking, prioritization, and determination to the test.</p>
+                    <p>I love working in tech because I get to solve large problems by creating innovative solutions, all while giving my brain a nice workout. Being surrounded by nurses and doctors during the COVID-19 pandemic inspired me to want to do big things, and my dream is for my ideas to shape the world, or at least improve some lives.</p>
+                    <p>It's probably no surprise that someone who is working in IT is into video games, but I feel that it deserves a mention. In particular, I love Dance Dance Revolution and <a href="https://youtu.be/qEMGxnC6Mfg?si=ruN8gQ_GPJGnfHLw" target="blank" className="purple-link">Pump it Up</a>. Arcade gaming not only helps me keep in shape, but it has also brought me to some of my best friends, and taken me out of my comfort zone. Besides that, I am a huge fan of the Elder Scrolls Games as well as Baldur's Gate. Anything that can get me immersed in a different world is a big draw to me.</p>
+                    <p>Food is my love language and being able to bake for my friends and family brings me so much joy. I worked briefly at Crumbl Cookie during my last months in Connecticut, where I learned many new techniques to up my baking game. I've made everything from multi-layer cakes, macarons, royal icing cookies, and home made ice cream. Food is how I express myself, and I love how my food creates an experience and memories for those who get to consume it.</p>
                 </Col>
                 <Col md={6}>
                     <div
@@ -170,7 +170,7 @@ export const About = () => {
 
             <Row>
                 <h3>What's Next?</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta fringilla magna, et tempus leo maximus sed. Nunc nec massa auctor, fermentum arcu vitae, pellentesque nisi. Fusce a libero eget metus vulputate elementum. Cras hendrerit ipsum malesuada est laoreet hendrerit. Vestibulum neque lorem, pretium venenatis euismod ac, sagittis mollis nulla. Fusce eget sem quis ex tristique imperdiet ut sit amet magna. Duis tincidunt, dolor sit amet accumsan vestibulum, neque nisi cursus ante, ut rutrum risus lorem a elit. Sed vel rhoncus erat, vel rhoncus mi. Duis cursus, metus quis fermentum ullamcorper, metus lorem sagittis ante, eget sollicitudin risus tortor at tellus. Mauris ullamcorper fermentum urna, non scelerisque justo ultrices porttitor.</p>
+                <p>Like many new grads and junior developers, I am eager to sink my teeth in and continue learning more.</p>
             </Row>
 
         </Container>

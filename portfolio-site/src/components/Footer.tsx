@@ -5,25 +5,22 @@ import Col from 'react-bootstrap/Col';
 
 export const Footer = () => {
     return (
-        <footer className="bg-light text-dark py-3 border-top">
-            <Container>
+        <footer className="bg-dark text-light py-3 border-top">
+            <Container className="text-center">
                 <Row>
-                    <Col md={6}>
-                        <h5>Thanks for looking!</h5>
-                        <p>Please contact me if you are interested in working on a project or collaboration.</p>
+                    <Col md={4}>
+                    <p>Hosted on Digital Ocean | Thank you to FreeDNS</p>
                     </Col>
-                    <Col md={3}>
-                        <h6>Get in touch!</h6>
-                        <p>Email: leah@example.com</p>
+                    <Col md={4}>
+                    <small>&copy; {new Date().getFullYear()} LeahSattar.com</small>
                     </Col>
-                    <Col md={3}>
-                        <h6>Follow me</h6>
-                        <p>LinkedIn | GitHub</p>
+                    <Col md={4}>
+                    <p></p>
                     </Col>
                 </Row>
                 <Row className="mt-2">
                     <Col className="text-center">
-                        <small>&copy; {new Date().getFullYear()} LeahSattar.com</small>
+                    <p>Icons sourced from Flaticon.com and Icons8.com</p>
                     </Col>
                 </Row>
             </Container>
