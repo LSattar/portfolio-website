@@ -420,3 +420,13 @@ html, body, #root, .App {
     display: none;
   }
 }
+
+#project-description{
+  @media(min-width: 768px){
+    height: 320px;
+  }
+
+  @media(min-width: 992px){
+    height: 250px;
+  }
+}

@@ -36,21 +36,22 @@ export const DetailedProjectCard = ({
                     <Card.Title className="text-purple">{title}</Card.Title>
                     <Card.Subtitle className="my-1 text-secondary">{company}</Card.Subtitle>
                 </Col>
-                <Col className="text-start text-lg-end m-lg-1 mt-1" md={12}>
+                <Col className="text-start mt-1" md={12}>
                     <Card.Subtitle>{date}</Card.Subtitle>
                 </Col>
             </Row>
-            <Card.Body className="text-start">
-            <Card.Text>
-                    {description}
-                    <br />
-                    {skills.map((skill, index) => (
-                        <Button key={index} className="me-2 mt-2 skill-button border-0 rounded-4 p-2" size="sm" disabled>
-                            {skill}
-                        </Button>
-                    ))}
-                </Card.Text>
-            </Card.Body>
+            <Card.Body className="text-start d-flex flex-column justify-content-between">
+  <div id="project-description">
+    {description}
+  </div>
+  <div className="mt-3">
+    {skills.map((skill, index) => (
+      <Button key={index} className="me-2 mt-2 skill-button border-0 rounded-4 p-2" size="sm" disabled>
+        {skill}
+      </Button>
+    ))}
+  </div>
+</Card.Body>
         </Card>
     );
 };

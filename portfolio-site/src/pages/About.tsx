@@ -21,31 +21,31 @@ const timelineEvents = [
         date: "June 2019",
         title: "Started at Reliant HouseCalls",
         icon: "bi-briefcase",
-        description: `Then operating under the Prime Healthcare group, I began my career with Reliant as a front desk receptionist. After settling into my new position, I saw a deficit in the current technologies that we were using, mainly not taking advantage of the insane power that spreadsheets can hold (this is a safespace for Excel lovers). I would spend the next two years working to improve the efficiency of all of our processes, while also juggling additional responsibilities that the COVID-19 pandemic brought.`
+        description: `Then operating under the Prime Healthcare group, I began my career with Reliant as a front desk receptionist. After settling into my new position, I noticed a deficit in the technologies we were using, the main one was not taking advantage of the incredible power spreadsheets can offer (this is a safe space for Excel lovers). Over the next two years, I worked to improve the efficiency of our processes while also juggling the additional responsibilities brought on by the COVID-19 pandemic.`
     },
     {
         date: "August 2021",
         title: "Started at Manchester Community College",
         icon: "bi-backpack",
-        description: `After digging deeper, I realized that the best way to proceed with developing more advanced code and functionality to my blossoming IT systems was to receive formal training. I chose to enroll at Manchester Community College to continue my career. I only took one class because I was not confident in myself, but I passed with flying colors and dove headfirst into becoming an overtime student.`
+        description: `After digging deeper, I realized the best way to bring more advanced code and functionality to my blossoming IT systems was to receive formal training. I enrolled at Manchester Community College to continue my career. I started by taking just one class because I wasn’t confident in myself, but I passed with flying colors and dove headfirst into becoming an overtime student.`
     },
     {
         date: "December 2022",
         title: "Graduated from MCC",
         icon: "bi-mortarboard",
-        description: `After 3 semesters full of ups and downs, I graduated Summa Cum Laude from Manchester Community College. I was in the Bachelor's degree pathway, with the curriculum designed to provide a smooth transition to Central Connecticut State University's comp sci program. I was accepted into the Honors program with a cybersecurity specialization. Life had other things in store for me though.`
+        description: `After three semesters full of ups and downs, I graduated Summa Cum Laude from Manchester Community College. I was in the Bachelor's degree pathway, designed to provide a smooth transition to Central Connecticut State University’s computer science program. I was even accepted into the Honors Program with a cybersecurity specialization. But life had other plans for me.`
     },
     {
         date: "January 2023",
         title: "Moved to Florida",
         icon: "bi-house",
-        description: `You really never know what life is going to throw at you, and for me, I did not expect to start dating one of my best friends who, for better or worse, lived 1500 miles away in Florida. Rather than wait another 2 years for me to finish my bachelor's degree at CCSU, I chose to move down to Florida to be with my partner. I am very fortunate that I was able to continue working with Reliant HouseCalls remotely.`
+        description: `You never really know what life is going to throw at you. I didn’t expect to start dating one of my best friends, who, for better or worse, lived 1,500 miles away in Florida. Rather than wait another two years to finish my degree at CCSU, I moved to Florida to be with my partner. I was very fortunate to be able to continue working remotely with Reliant HouseCalls.`
     },
     {
         date: "August 2023",
         title: "Started at Seminole State College",
         icon: "bi-backpack",
-        description: `Along with other things that did not end up working out as expected, when I decided to move to Florida, I also applied to the University of Central Florida, and was accepted! Unfortunately, I discovered that most of the classes were in person, which was not compatible with my full-time work. My local community college offered a wonderful bachelor's degree program in Information Systems Technology that fit my busy work schedule. I took some time off of school to spare me the full brunt of out-of-state tuition.`
+        description: `Along with other things that didn’t work out as expected, when I moved to Florida, I applied and was accepted to the University of Central Florida. Unfortunately, most of the classes were in person, which didn’t align with my full-time job. Luckily, my local community college offered a wonderful bachelor's degree program in Information Systems Technology that fit my work schedule. I also took some time off to avoid the full brunt of out-of-state tuition.`
     },
     {
         date: "June 2024",
@@ -57,19 +57,19 @@ const timelineEvents = [
         date: "December 2024",
         title: "Graduated from SSC",
         icon: "bi-mortarboard",
-        description: `3.5 years later, after (thankfully) no blood, some sweat, and many tears, I emerged from SSC with my Bachelor of Science in Information Systems Technology. I learned so much yet knew I had so much more to learn.`
+        description: `Three and a half years later—after (thankfully) no blood, some sweat, and many tears, I graduated from SSC with my Bachelor of Science in Information Systems Technology. I had learned so much, and yet I knew there was still so much more to discover.`
     },
     {
         date: "February 2025",
         title: "Started at SkillStorm",
         icon: "bi-briefcase",
-        description: `After 4 interviews, a lot of studying, and anticipating the next phone call, I was hired on by Skillstorm for their AWS DevSecOps training. It was easily one of the highlights of my career, and I was able to learn so much during my training, including Spring Boot, React, and AWS (we also covered MySQL, but databases are definitely my specialty).`
+        description: `After four interviews, countless hours of studying, and nervously anticipating the next phone call, I was hired by SkillStorm for their AWS DevSecOps training. It became one of the highlights of my career. I learned so much during the program, including Spring Boot, React, and AWS.`
     },
     {
         date: "April 2025",
         title: "Security+ Certified",
         icon: "bi-patch-check",
-        description: `In order to advance my career and sharpen my cybersecurity foundation, I pursued the CompTIA™ Security+ certification. After three intense weeks of studying and memorizing more acronyms than I thought could possibly exist, I earned my first official IT certification`
+        description: `To advance my career and solidify my cybersecurity foundation, I pursued the CompTIA™ Security+ certification. After three intense weeks of studying and memorizing more acronyms than I thought could possibly exist, I earned my first official IT certification.`
     }
 ];
 
@@ -103,7 +103,7 @@ export const About = () => {
                     <p>Thanks for taking the time to get to know a bit more about me. <em>Where do I start?</em></p>
                     <p>I've been working fulltime in healthcare administration since I was 19, and returned back to school when I was 21. Juggling being a full-time student and a full-time working put my multi-tasking, prioritization, and determination to the test.</p>
                     <p>I love working in tech because I get to solve large problems by creating innovative solutions, all while giving my brain a nice workout. Being surrounded by nurses and doctors during the COVID-19 pandemic inspired me to want to do big things, and my dream is for my ideas to shape the world, or at least improve some lives.</p>
-                    <p>In my spare time, you can often find me playing video games. Whether it's Dance Dance Revolution, Pump It Up, or getting lost in the worlds of the Elder Scrolls, I love playing games with or alongside my friends. When I'm not gaming, I'm in the kitchen experimenting with bakes and desserts, from macarons and multi-tier cakes to cannolis and homemade ice cream. And of course, I share my space (and sometimes my keyboard) with four wonderful cats who keep me grounded, entertained, and always covered in just a little bit of fur.</p>
+                    <p>In my spare time, you can often find me playing video games. Whether it's Dance Dance Revolution, <a className="purple-link" href="https://www.youtube.com/watch?v=qEMGxnC6Mfg" target="blank">Pump It Up</a>, or getting lost in the worlds of the Elder Scrolls, I love playing games with or alongside my friends. When I'm not gaming, I'm in the kitchen experimenting with bakes and desserts, from macarons and multi-tier cakes to cannolis and homemade ice cream. And of course, I share my space (and sometimes my keyboard) with four wonderful cats who keep me grounded, entertained, and always covered in just a little bit of fur.</p>
                 </Col>
                 <Col md={12} lg={6} className="d-flex justify-content-center align-items-center">
                     <div id="headshot-container">
@@ -121,7 +121,7 @@ export const About = () => {
             </Row>
             <Row>
                 <h3>My Journey</h3>
-                <p>Truth be told, I didn’t always envision myself working in computer science. It wasn’t until I found myself in real-world situations. When faced with inefficiencies, data challenges, and the need for creative problem-solving, I realized how much I loved using technology to make things better. Discovering this passion gave me direction, and I’m so grateful for the path it’s opened up for me.</p> 
+                <p>Truth be told, I didn’t always envision myself working in computer science. It wasn’t until I found myself in real-world situations where I was faced with inefficiencies, data challenges, and the need for creative problem-solving, that I realized how much I loved using technology to make things better. Discovering this passion gave me direction, and I’m so grateful for the path it’s opened up for me.</p> 
                 <p>My journey has been anything but linear. It’s been shaped by hard work, late nights, small wins, big lessons, and the belief that each step, even the unexpected ones, has helped me grow. Here’s a look at how I got here.</p>
                 <TimelineCarousel timelineEvents={timelineEvents}></TimelineCarousel>
             </Row>

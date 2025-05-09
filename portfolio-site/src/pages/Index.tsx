@@ -25,19 +25,20 @@ import { SocialIcons } from '../components/SocialIcons';
 
 const experience = [
     {
+        title: "Backend Coordinator",
+        description: "At Reliant HouseCalls, I supported a small team of healthcare providers by improving and automating billing and administrative processes. I successfully streamlined the Chronic Care Management billing workflow, enhancing data entry, management, and auditing, dramatically increasing both operational efficiency and data integrity. In addition to my development work, I also provided financial analysis, reporting, and light technical support to ensure smooth day-to-day operations.",
+        date: "June 2019 - Present",
+        location: "Vernon, CT (remote)",
+        company: "Reliant HouseCalls, PLLC",
+        skills: ["Python", "Google Cloud Platform", "MySQL"]
+    },
+    {
         title: "AWS DevSecOps Engineer",
         description: "At SkillStorm, I was selected as a DevSecOps Engineer specializing in AWS to work on projects for the Department of Veterans Affairs. During my time there, I developed a full-stack application for a CPA to track client work, using MySQL, Spring Boot, and React, all hosted on AWS. The training program was fast-paced and intensive, equipping me with practical experience in cloud deployment and secure development practices. Unfortunately, my time at SkillStorm was cut short due to project funding constraints.",
         date: "February 2025 - May 2025",
         location: "Lake Mary, FL (remote)",
         company: "SkillStorm",
-        skills: ["TypeScript","React","Python","MySQL"]
-    }, {
-        title: "Backend Coordinator",
-        description: "At Reliant HouseCalls, I supported a small team of healthcare providers by improving and automating billing and administrative processes. I successfully streamlined the Chronic Care Management billing workflow, enhancing data entry, management, and auditing—dramatically increasing both operational efficiency and data integrity. In addition to my development work, I also provided financial analysis and light technical support to ensure smooth day-to-day operations.",
-        date: "June 2019 - Present",
-        location: "Vernon, CT (remote)",
-        company: "Reliant HouseCalls, PLLC",
-        skills: ["TypeScript","React","Python","MySQL"]
+        skills: ["Amazon Web Services", "React", "Java", "MySQL"]
     }
 ]
 
@@ -47,19 +48,19 @@ const projects = [
         description: "At SkillStorm, I designed and deployed a secure full-stack application for a CPA to manage client work. The project utilized MySQL, Spring Boot, and React, and was fully hosted on AWS. I applied defense-in-depth principles to reduce the application’s attack surface across all layers, and configured a custom AWS Virtual Private Cloud with public/private subnets, NAT gateways, and routing tables to securely isolate services and control traffic flow.",
         date: "February 2025 - April 2025",
         company: "SkillStorm",
-        skills: ["TypeScript","React","Python","MySQL"]
+        skills: ["Amazon Web Services", "React", "Java", "MySQL, REST API's"]
     }, {
         title: "ICD-10 Verification Tool",
         description: "At Reliant HouseCalls, I developed a web scraping tool using BeautifulSoup and Pandas to extract billable and non-billable ICD-10 codes from official sources. I then automated the verification of Chronic Care Management billing entries, identifying invalid codes and exporting them to a dedicated spreadsheet for review. This significantly enhanced billing accuracy, reduced manual error-checking, and streamlined the overall verification workflow.",
         date: "December 2024 - February 2025",
         company: "Reliant HouseCalls",
-        skills: ["TypeScript","React","Python","MySQL"]
+        skills: ["Python", "Pandas", "BeautifulSoup"]
     }, {
         title: "Insurance Liability Bucket Report",
         description: "I led a comprehensive data clean-up effort across 300,000+ transactions, dramatically improving the accuracy of financial records and boosting reporting performance. Using MySQL, I performed a detailed analysis of insurance reimbursement rates by payor, providing actionable insights that supported more effective revenue cycle management and improved overall reimbursement efficiency.",
         date: "June 2024 - July 2025",
         company: "Reliant HouseCalls",
-        skills: ["TypeScript","React","Python","MySQL"]
+        skills: ["MySQL", "Python", "Java"]
     }
 ]
 
@@ -129,10 +130,10 @@ export const Index = () => {
                         <Container id="sidebar-content">
                             <Container className='sticky p-3 p-md-5 text-center text-md-start'>
                                 <Container>
-                                <h1>Leah Sattar</h1>
-                                <p className='text-purple'>Full Stack Developer<br /><span className='text-pink'>CompTIA™ Security+ Certified</span></p>
-                                <Container className='d-block d-md-none text-center text-md-start'><SocialIcons></SocialIcons></Container>
-                                <h3 className='d-none d-lg-block'>Welcome to my portfolio</h3>
+                                    <h1>Leah Sattar</h1>
+                                    <p className='text-purple'>Full Stack Developer<br /><span className='text-pink'>CompTIA™ Security+ Certified</span></p>
+                                    <Container className='d-block d-md-none text-center text-md-start'><SocialIcons></SocialIcons></Container>
+                                    <h3 className='d-none d-lg-block'>Welcome to my portfolio</h3>
                                 </Container>
 
                                 <Nav className="flex-column text-start ms-5 w-25 d-none d-md-block">
@@ -149,7 +150,7 @@ export const Index = () => {
                                         <Nav.Link href="#education" active={activeSection === "education"} className="px-0  text-purple nav-link-custom ps-2">Education</Nav.Link>
                                     </Nav.Item>
                                 </Nav></Container>
-                                <Container  className="p-5 position-fixed bottom-0 start-0 p-2 bg-transparent text-light rounded w-auto d-none d-md-block" id='social-icons'> <SocialIcons></SocialIcons></Container>
+                            <Container className="p-5 position-fixed bottom-0 start-0 p-2 bg-transparent text-light rounded w-auto d-none d-md-block" id='social-icons'> <SocialIcons></SocialIcons></Container>
                         </Container>
                     </Col>
                     <Col md={7} xs={12}>
@@ -160,15 +161,15 @@ export const Index = () => {
                                     Nice to meet you! I'm Leah Sattar, a full-stack developer with a strong focus on security, DevOps, and building efficient, scalable solutions. I thrive on solving complex challenges and streamlining development processes across cloud platforms like <b className='text-purple'>Amazon Web Services</b> and <b className='text-purple'>Google Cloud Platform</b>.
                                 </p>
                                 <p>
-                                    I've developed full-stack applications tailored to business needs while working with SkillStorm and Reliant HouseCalls, and I’ve performed data analysis using <b className='text-purple'>Epic Clarity</b> and <b className='text-purple'>MySQL</b> to inform better healthcare decisions.
+                                    I've built full-stack applications that address real business needs while working with teams at <b className='text-purple'>SkillStorm</b> and <b className='text-purple'>Reliant HouseCalls</b>. In the healthcare space, I’ve also used <b className='text-purple'>Epic Clarity</b> and <b className='text-purple'>MySQL</b> to analyze clinical and operational data, helping drive informed decision-making and improve patient care outcomes.
                                 </p>
                                 <p>
                                     Beyond coding, I enjoy spending time with my four cats, mastering Dance Dance Revolution, and experimenting in the kitchen.
                                 </p>
-                            <h5 className='text-purple'>I am experienced in: </h5>
-                            <SkillMarquee></SkillMarquee>
-                            <br></br>
-                            <Link to="/about-me" className="text-purple purple-link fw-bold">Read more about me →</Link>
+                                <h5 className='text-purple'>I am experienced in: </h5>
+                                <SkillMarquee></SkillMarquee>
+                                <br></br>
+                                <Link to="/about-me" className="text-purple purple-link fw-bold">Read more about me →</Link>
                             </section>
                             <section id="experience" className='mb-5'>
 
@@ -221,10 +222,10 @@ export const Index = () => {
                                     ))}
                                 </Row>
                                 <hr></hr>
-                                <p className='pt-3 text-center text-xxl-start'>Thank you to <a href="https://freedns.afraid.org/" target="blank" className='purple-link'>FreeDNS </a> 
-                                 | Hosted on <a href="https://www.digitalocean.com/" target='blank' className='purple-link'>Digital Ocean </a> 
-                                 | Icons from <a href="https://www.flaticon.com/" target='blank' className='purple-link'>Flaticons</a> and <a href="https://www.icons8.com" target='blank' className='purple-link'>Icons8</a></p>
-                                 <Container className='d-block d-md-none text-center text-md-start'><p>Let's get in touch!</p><SocialIcons></SocialIcons></Container>
+                                <p className='pt-3 text-center text-xxl-start'>Thank you to <a href="https://freedns.afraid.org/" target="blank" className='purple-link'>FreeDNS </a>
+                                    | Hosted on <a href="https://www.digitalocean.com/" target='blank' className='purple-link'>Digital Ocean </a>
+                                    | Icons from <a href="https://www.flaticon.com/" target='blank' className='purple-link'>Flaticons</a> and <a href="https://www.icons8.com" target='blank' className='purple-link'>Icons8</a></p>
+                                <Container className='d-block d-md-none text-center text-md-start'><p>Let's get in touch!</p><SocialIcons></SocialIcons></Container>
                             </section>
                         </main>
                     </Col>
