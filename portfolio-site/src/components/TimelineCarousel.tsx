@@ -26,8 +26,6 @@ export const TimelineCarousel: React.FC<TimelineCarouselProps> = ({ timelineEven
   return (
     <>
       <div className="d-flex align-items-center">
-
-        <div className="timeline-scroll-container flex-grow-1" ref={scrollRef} id='timeline-buttons'>
           <div className="d-flex flex-nowrap">
             {timelineEvents.map((event, index) => (
               <ToggleButton
@@ -48,7 +46,6 @@ export const TimelineCarousel: React.FC<TimelineCarouselProps> = ({ timelineEven
               </ToggleButton>
             ))}
           </div>
-        </div>
       </div>
 
       <Carousel
