@@ -1,3 +1,6 @@
-# https://www.robotstxt.org/robotstxt.html
+# robots.txt for Leah Sattar Portfolio
+
 User-agent: *
 Disallow:
+
+Sitemap: https://www.leahsattar.mooo.com/sitemap.xml
