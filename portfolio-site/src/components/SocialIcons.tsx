@@ -14,12 +14,6 @@ export const SocialIcons = () => {
                 <a className="text-purple" href="https://www.facebook.com/leah.sattar" target="_blank" rel="noopener noreferrer">
                     <i className="bi bi-facebook me-3 social-icon"></i>
                 </a>
-                <a className="text-purple" href="mailto:ljsattar@gmail.com">
-                    <i className="bi bi-envelope-at-fill me-3 social-icon"></i>
-                </a>
-                <a className="text-purple" href="tel:+18608785719">
-                    <i className="bi bi-telephone-fill social-icon"></i>
-                </a>
             </h2>
         </Container>
     );
