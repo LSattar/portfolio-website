@@ -223,7 +223,6 @@ export const Index = () => {
                                 </Row>
                                 <hr></hr>
                                 <p className='pt-3 text-center text-xxl-start'>Thank you to <a href="https://freedns.afraid.org/" target="blank" className='purple-link'>FreeDNS </a>
-                                    | Hosted on <a href="https://www.digitalocean.com/" target='blank' className='purple-link'>Digital Ocean </a>
                                     | Icons from <a href="https://www.flaticon.com/" target='blank' className='purple-link'>Flaticons</a> and <a href="https://www.icons8.com" target='blank' className='purple-link'>Icons8</a></p>
                                 <Container className='d-block d-md-none text-center text-md-start'><p>Let's get in touch!</p><SocialIcons></SocialIcons></Container>
                             </section>
