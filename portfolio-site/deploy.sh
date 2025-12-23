@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Script to build and deploy React app to AWS S3
-# Usage: ./deploy.sh
 
 set -e  # Exit on any error
 
@@ -67,13 +66,13 @@ fi
 
 echo -e "${GREEN}Build completed successfully!${NC}"
 
-# Check if build directory exists
 if [ ! -d "$BUILD_DIR_ABS" ]; then
     echo -e "${RED}Error: Build directory not found at $BUILD_DIR_ABS${NC}"
     exit 1
 fi
 
 echo -e "${YELLOW}Syncing files to S3...${NC}"
+#push files to AWS bucket and delete unnecessary files
 aws s3 sync "$BUILD_DIR_ABS" "$S3_BUCKET" --delete --profile "$AWS_PROFILE"
 
 if [ $? -ne 0 ]; then
@@ -83,10 +82,8 @@ fi
 
 echo -e "${YELLOW}Setting cache-control headers for optimal SPA caching...${NC}"
 
-# Set no-cache for all HTML files (so they always fetch fresh)
 echo -e "${YELLOW}  → Setting no-cache for HTML files...${NC}"
 find "$BUILD_DIR_ABS" -name "*.html" -type f | while read -r file; do
-    # Get relative path from build directory
     rel_path="${file#$BUILD_DIR_ABS/}"
     aws s3 cp "$file" "$S3_BUCKET$rel_path" \
         --cache-control "no-cache, max-age=0, must-revalidate" \
@@ -94,9 +91,7 @@ find "$BUILD_DIR_ABS" -name "*.html" -type f | while read -r file; do
         --profile "$AWS_PROFILE" 2>/dev/null || true
 done
 
-# Set long cache for hashed assets (main-*.js, main-*.css, chunk files)
 echo -e "${YELLOW}  → Setting long cache for hashed assets...${NC}"
-# Handle all hashed assets in static/js and static/css
 find "$BUILD_DIR_ABS/static" -type f \( -name "main.*.js" -o -name "main.*.css" -o -name "*.chunk.js" -o -name "*.chunk.css" \) | while read -r file; do
     if [ -f "$file" ]; then
         rel_path="${file#$BUILD_DIR_ABS/}"
