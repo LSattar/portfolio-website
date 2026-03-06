@@ -16,24 +16,31 @@ import { SocialIcons } from '../components/SocialIcons';
 
 const experience = [
     {
+        title: "Fullstack Software Engineer",
+        description: "At SkillStorm, I was selected as a Full Stack Engineer to work on projects for FinCEN. During my time there, I developed multiple full-stack applications including an inventory managment software, hotel reservation platform, and FinCEN SAR/CTR processor. I am equipped with practical experience in cloud deployment and secure development practices.",
+        date: "February 2025 - Present",
+        location: "Lake Mary, FL (remote)",
+        company: "SkillStorm",
+        skills: ["Amazon Web Services", "Angular", "Java", "MySQL"]
+    },
+    {
         title: "Backend Coordinator",
         description: "At Reliant HouseCalls, I supported a small team of healthcare providers by improving and automating billing and administrative processes. I successfully streamlined the Chronic Care Management billing workflow, enhancing data entry, management, and auditing, dramatically increasing both operational efficiency and data integrity. In addition to my development work, I also provided financial analysis, reporting, and light technical support to ensure smooth day-to-day operations.",
-        date: "June 2019 - Present",
+        date: "June 2019 - February 2025",
         location: "Vernon, CT (remote)",
         company: "Reliant HouseCalls, PLLC",
         skills: ["Python", "Google Cloud Platform", "MySQL"]
-    },
-    {
-        title: "AWS DevSecOps Engineer",
-        description: "At SkillStorm, I was selected as a DevSecOps Engineer specializing in AWS to work on projects for the Department of Veterans Affairs. During my time there, I developed a full-stack application for a CPA to track client work, using MySQL, Spring Boot, and React, all hosted on AWS. The training program was fast-paced and intensive, equipping me with practical experience in cloud deployment and secure development practices. Unfortunately, my time at SkillStorm was cut short due to project funding constraints.",
-        date: "February 2025 - May 2025",
-        location: "Lake Mary, FL (remote)",
-        company: "SkillStorm",
-        skills: ["Amazon Web Services", "React", "Java", "MySQL"]
     }
 ]
 
 const projects = [
+    {
+        title: "Finsight",
+        description: "At SkillStorm, I and a team of 2 other software engineers developed and deployed a fully functioning application for FinCEN to process and manage SAR/CTR forms, track suspects, and refer cases to law enforcement. The application supported multiple roles for different users of the application, including law enforcement, FinCEN analysts, and compliance users from financial institutions. This project used an Aurora database running MySQL, multiple microservices created with Spring Boot, and an Angular frontend.",
+        date: "February 2025 - April 2025",
+        company: "SkillStorm",
+        skills: ["Amazon Web Services", "OAuth2", "Angular", "Java", "MySQL", "Microservices"]
+    },
     {
         title: "CPA Management Software",
         description: "At SkillStorm, I designed and deployed a secure full-stack application for a CPA to manage client work. The project utilized MySQL, Spring Boot, and React, and was fully hosted on AWS. I applied defense-in-depth principles to reduce the application’s attack surface across all layers, and configured a custom AWS Virtual Private Cloud with public/private subnets, NAT gateways, and routing tables to securely isolate services and control traffic flow.",
@@ -68,6 +75,37 @@ const education = [
         school: "Manchester Community College",
         location: "Manchester, CT",
         description: ""
+    }
+]
+
+const certifications = [
+    {
+        title: "Oracle Certified Associate, Java SE 8",
+        date: "March 2026",
+        school: "",
+        location: "",
+        description: ""
+    },
+    {
+        title: "AWS Solutions Architect - Associate",
+        date: "January 2026 - January 2029",
+        school: "",
+        location: "",
+        description: ""
+    },
+    {
+        title: "AWS Cloud Practitioner",
+        date: "December 2025 - December 2028",
+        school: "",
+        location: "",
+        description: ""
+    },
+    {
+        title: "Java Foundations Certified Associate",
+        date: "December 2025",
+        school: "",
+        location: "",
+        description: ""
     },
     {
         title: "CompTIA™ Security+",
@@ -83,24 +121,21 @@ export const Index = () => {
     const [activeSection, setActiveSection] = React.useState("");
 
     React.useEffect(() => {
-        const sectionIds = ["about", "experience", "projects", "education"];
+        const sectionIds = ["about", "experience", "projects", "certifications", "education"];
+        const scrollRoot = document.getElementById("main-content");
+        if (!scrollRoot) return;
+
         const observerOptions = {
-            root: null,
+            root: scrollRoot,
             threshold: Array.from({ length: 101 }, (_, i) => i / 100),
         };
 
-        const visibleSections = new Map();
-
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                visibleSections.set(entry.target.id, entry.intersectionRatio);
-            });
-
-            const mostVisible = [...visibleSections.entries()]
-                .sort((a, b) => b[1] - a[1])[0];
-
-            if (mostVisible && mostVisible[1] > 0.3) {
-                setActiveSection(mostVisible[0]);
+            const best = entries
+                .filter((e) => e.intersectionRatio > 0.3)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+            if (best) {
+                setActiveSection(best.target.id);
             }
         }, observerOptions);
 
@@ -129,16 +164,19 @@ export const Index = () => {
 
                                 <Nav className="flex-column text-start ms-5 w-25 d-none d-md-block">
                                     <Nav.Item>
-                                        <Nav.Link href="#about" active={activeSection === "about"} className="px-0 text-purple nav-link-custom ps-2">About</Nav.Link>
+                                        <Nav.Link href="#about" active={activeSection === "about"} className="px-0 text-purple nav-link-custom ps-2" onClick={() => setActiveSection("about")}>About</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Nav.Link href="#experience" active={activeSection === "experience"} className="px-0  text-purple nav-link-custom ps-2">Experience</Nav.Link>
+                                        <Nav.Link href="#experience" active={activeSection === "experience"} className="px-0  text-purple nav-link-custom ps-2" onClick={() => setActiveSection("experience")}>Experience</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Nav.Link href="#projects" active={activeSection === "projects"} className="px-0  text-purple nav-link-custom ps-2">Projects</Nav.Link>
+                                        <Nav.Link href="#projects" active={activeSection === "projects"} className="px-0  text-purple nav-link-custom ps-2" onClick={() => setActiveSection("projects")}>Projects</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Nav.Link href="#education" active={activeSection === "education"} className="px-0  text-purple nav-link-custom ps-2">Education</Nav.Link>
+                                        <Nav.Link href="#certifications" active={activeSection === "certifications"} className="px-0  text-purple nav-link-custom ps-2" onClick={() => setActiveSection("certifications")}>Certifications</Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link href="#education" active={activeSection === "education"} className="px-0  text-purple nav-link-custom ps-2" onClick={() => setActiveSection("education")}>Education</Nav.Link>
                                     </Nav.Item>
                                 </Nav></Container>
                             <Container className="p-5 position-fixed bottom-0 start-0 p-2 bg-transparent text-light rounded w-auto d-none d-md-block" id='social-icons'> <SocialIcons></SocialIcons></Container>
@@ -197,8 +235,25 @@ export const Index = () => {
                                 </Row>
                                 <Link to="/projects" className="text-purple purple-link fw-bold">Read about all of my projects →</Link>
                             </section>
+                            <section id="certifications" className="mb-5 fadeInRight">
+                                    <h3>Certifications</h3>
+                                    <Row>
+                                    {certifications.map((certifications, index) => (
+                                        <Col md={12} className="mb-4" key={index}>
+                                            <EducationCard
+                                                title={certifications.title}
+                                                school={certifications.school}
+                                                description={certifications.description}
+                                                date={certifications.date}
+                                                location={certifications.location}
+                                            />
+                                        </Col>
+                                    ))}
+                                    </Row>
+                                    <Link to="https://www.credly.com/users/leah-sattar" className="text-purple purple-link fw-bold" target='blank'>Verify my certifications on Credly →</Link>
+                            </section>
                             <section id="education" className="mb-5">
-                                <h3>Education & Certifications</h3>
+                                <h3>Education</h3>
                                 <Row>
                                     {education.map((education, index) => (
                                         <Col md={12} className="mb-4" key={index}>
