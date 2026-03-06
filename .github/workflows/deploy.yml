@@ -1,0 +1,68 @@
+name: Deploy to S3 and CloudFront
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: portfolio-site/package-lock.json
+
+      - name: Install dependencies and build
+        working-directory: portfolio-site
+        run: |
+          npm ci
+          npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION || 'us-east-1' }}
+          role-session-name: GitHubActions-Deploy
+
+      - name: Sync build to S3
+        run: |
+          aws s3 sync portfolio-site/build s3://leahsattar-portfolio-site --delete
+
+      - name: Set cache headers for HTML files
+        run: |
+          cd portfolio-site/build
+          find . -name "*.html" -type f | while read -r file; do
+            rel_path="${file#./}"
+            aws s3 cp "$file" "s3://leahsattar-portfolio-site/$rel_path" \
+              --cache-control "no-cache, max-age=0, must-revalidate" \
+              --metadata-directive REPLACE \
+              2>/dev/null || true
+          done
+
+      - name: Set cache headers for hashed assets
+        run: |
+          cd portfolio-site/build
+          find ./static -type f \( -name "main.*.js" -o -name "main.*.css" -o -name "*.chunk.js" -o -name "*.chunk.css" \) 2>/dev/null | while read -r file; do
+            [ -f "$file" ] || continue
+            rel_path="${file#./}"
+            aws s3 cp "$file" "s3://leahsattar-portfolio-site/$rel_path" \
+              --cache-control "max-age=31536000, immutable" \
+              --metadata-directive REPLACE 2>/dev/null || true
+          done
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E26EAFYP2A1P8O \
+            --paths "/*"
