@@ -3,17 +3,13 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Carousel, Button, ToggleButton, ButtonGroup } from 'react-bootstrap';
-import { useState } from "react";
-import Image from 'react-bootstrap/Image';
-import Counter from '../components/Counter'
+import Counter from '../components/Counter';
 import { DetailedProjectCard } from "../components/DetailedProjectCard";
 import { Link } from "react-router-dom";
-import pythonImg from '../images/python-black.png'
-import cloudImg from '../images/cloud-computing.png'
-import mySQLImg from '../images/mysql.png'
-import androidImg from '../images/android.png'
-import googleImg from '../images/google-cloud.svg'
+import pythonImg from '../images/python-black.png';
+import cloudImg from '../images/cloud-computing.png';
+import mySQLImg from '../images/mysql.png';
+import androidImg from '../images/android.png';
 
 const projects = [
     {
@@ -66,15 +62,6 @@ const projects = [
 ]
 
 export const Projects = () => {
-
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [radioValue, setRadioValue] = useState('0');
-
-    const handleSelect = (selectedIndex: number) => {
-        setActiveIndex(selectedIndex);
-        setRadioValue(String(selectedIndex));
-    };
-
     return (
         <Container className="pt-5 fadeIn">
             <Link to="/" className="text-purple fw-bold">← Back</Link>

@@ -3,15 +3,10 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Carousel, Button, ToggleButton, ButtonGroup } from 'react-bootstrap';
-import { useState, useRef, useEffect } from "react";
 import Image from 'react-bootstrap/Image';
 import headshotImg from '../images/headshot1.jpg';
-import catImg from '../images/cat.png'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from "react-router-dom";
-import secPlusImg from '../images/sec-plus-white.png'
-import Counter from '../components/Counter'
 import { SocialIcons } from "../components/SocialIcons";
 import { TimelineCarousel } from '../components/TimelineCarousel'
 
@@ -74,26 +69,6 @@ const timelineEvents = [
 ];
 
 export const About = () => {
-
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [radioValue, setRadioValue] = useState('0');
-
-    const handleSelect = (selectedIndex: number) => {
-        setActiveIndex(selectedIndex);
-        setRadioValue(String(selectedIndex));
-    };
-
-    const scrollRef = useRef<HTMLDivElement | null>(null);
-
-    const scrollTimeline = (offset: number) => {
-        if (scrollRef.current) {
-            scrollRef.current.scrollBy({
-                left: offset,
-                behavior: 'smooth',
-            });
-        }
-    };
-
     return (
         <Container className="pt-5 pb-5 fadeIn">
             <Link to="/" className="text-purple purple-link fw-bold">← Back</Link>

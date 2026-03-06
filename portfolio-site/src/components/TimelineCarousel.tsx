@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { ToggleButton, Button, Carousel } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { ToggleButton, Carousel } from 'react-bootstrap';
 
 interface TimelineEvent {
   title: string;
@@ -14,10 +14,8 @@ interface TimelineCarouselProps {
 
 export const TimelineCarousel: React.FC<TimelineCarouselProps> = ({ timelineEvents }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const scrollRef = useRef<HTMLDivElement | null>(null);
 
-
-  const handleSelect = (selectedIndex: number, element?: HTMLElement) => {
+  const handleSelect = (selectedIndex: number) => {
     setActiveIndex(selectedIndex);
   };
 

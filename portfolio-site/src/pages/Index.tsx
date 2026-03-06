@@ -1,26 +1,17 @@
 import '../App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { NavLink } from '../components/NavLink';
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import { NavBar } from '../components/NavBar';
 import React from "react";
-import { About } from "../pages/About";
-import { Projects } from "../pages/Projects";
-import { Footer } from "../components/Footer";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { SkillAccordion } from '../components/SkillAccordion';
 import { ProjectCard } from '../components/ProjectCard';
 import { ExperienceCard } from '../components/ExperienceCard';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Button from 'react-bootstrap/Button';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { EducationCard } from '../components/EducationCard'
-import Nav from 'react-bootstrap/Nav'
-import { Link } from 'react-router-dom'
-import { SkillMarquee } from '../components/SkillMarquee'
+import { EducationCard } from '../components/EducationCard';
+import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
+import { SkillMarquee } from '../components/SkillMarquee';
 import { SocialIcons } from '../components/SocialIcons';
 
 const experience = [
@@ -131,7 +122,7 @@ export const Index = () => {
                             <Container className='sticky p-3 p-md-5 text-center text-md-start'>
                                 <Container>
                                     <h1>Leah Sattar</h1>
-                                    <p className='text-purple'>Full Stack Developer<br /><span className='text-pink'>CompTIA™ Security+ Certified</span></p>
+                                    <p className='text-purple'>Full Stack Developer<br /><span className='text-pink'>Certified AWS Solutions Architect</span></p>
                                     <Container className='d-block d-md-none text-center text-md-start'><SocialIcons></SocialIcons></Container>
                                     <h3 className='d-none d-lg-block'>Welcome to my portfolio</h3>
                                 </Container>

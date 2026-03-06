@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 interface CounterProps {
   target: number;
@@ -11,7 +11,7 @@ const Counter: React.FC<CounterProps> = ({ target, duration = 2000, suffix }) =>
   const [count, setCount] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const startCounting = () => {
+  const startCounting = useCallback(() => {
     let i = 0;
     const increment = Math.ceil(target / (duration / 16));
 
@@ -23,7 +23,7 @@ const Counter: React.FC<CounterProps> = ({ target, duration = 2000, suffix }) =>
       }
       setCount(i);
     }, 16);
-  };
+  }, [target, duration]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,7 +45,7 @@ const Counter: React.FC<CounterProps> = ({ target, duration = 2000, suffix }) =>
       if (el) observer.unobserve(el);
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [target, duration]);
+  }, [target, duration, startCounting]);
 
   return (
     <div className='stat color-change' ref={counterRef}>
