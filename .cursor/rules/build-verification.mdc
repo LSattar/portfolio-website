@@ -1,0 +1,11 @@
+---
+description: Require build verification before finishing code changes
+alwaysApply: true
+---
+
+# Build Verification
+
+- Run `npm run build` after making code changes that can affect the application.
+- Do not consider implementation complete until the build command succeeds.
+- If the build fails, fix the errors and re-run `npm run build` until it passes.
+- Include the build result in your final update (pass/fail and key error summary if failed).
