@@ -35,6 +35,13 @@ const experience = [
 
 const projects = [
     {
+        title: "Nimbus Care Manager",
+        description: "I served as the principal architect and developer for Nimbus Care Manager. Nimbus is a web-based application that allows healthcare providers and administrators to efficiently track, bill, and manage patient care. The application is hosted on AWS, with cost, efficiency, performance, and security in mind. Nimbus Care Manager is responsible for the care of over 2000 active patients, and still being actively developed and improved after launch.",
+        date: "April 2025 - Present",
+        company: "SkillStorm",
+        skills: ["Amazon Web Services", "Spring Boot", "React", "MySQL", "REST API's"]
+    },
+    {
         title: "Finsight",
         description: "At SkillStorm, I and a team of 2 other software engineers developed and deployed a fully functioning application for FinCEN to process and manage SAR/CTR forms, track suspects, and refer cases to law enforcement. The application supported multiple roles for different users of the application, including law enforcement, FinCEN analysts, and compliance users from financial institutions. This project used an Aurora database running MySQL, multiple microservices created with Spring Boot, and an Angular frontend.",
         date: "February 2025 - April 2025",
@@ -42,23 +49,11 @@ const projects = [
         skills: ["Amazon Web Services", "OAuth2", "Angular", "Java", "MySQL", "Microservices"]
     },
     {
-        title: "CPA Management Software",
-        description: "At SkillStorm, I designed and deployed a secure full-stack application for a CPA to manage client work. The project utilized MySQL, Spring Boot, and React, and was fully hosted on AWS. I applied defense-in-depth principles to reduce the application’s attack surface across all layers, and configured a custom AWS Virtual Private Cloud with public/private subnets, NAT gateways, and routing tables to securely isolate services and control traffic flow.",
-        date: "February 2025 - April 2025",
-        company: "SkillStorm",
-        skills: ["Amazon Web Services", "React", "Java", "MySQL, REST API's"]
-    }, {
         title: "ICD-10 Verification Tool",
-        description: "At Reliant HouseCalls, I developed a web scraping tool using BeautifulSoup and Pandas to extract billable and non-billable ICD-10 codes from official sources. I then automated the verification of Chronic Care Management billing entries, identifying invalid codes and exporting them to a dedicated spreadsheet for review. This significantly enhanced billing accuracy, reduced manual error-checking, and streamlined the overall verification workflow.",
+        description: "At Reliant HouseCalls, I developed a web scraping tool using BeautifulSoup and Pandas to extract billable and non-billable ICD-10 codes from official sources. I then automated the verification of Chronic Care Management billing entries, identifying invalid codes and exporting them to a dedicated spreadsheet for review. This significantly enhanced billing accuracy, reduced manual error-checking, and streamlined the overall verification workflow. This web scraper would also assist in the creation of Nimbus Care Manager.",
         date: "December 2024 - February 2025",
         company: "Reliant HouseCalls",
         skills: ["Python", "Pandas", "BeautifulSoup"]
-    }, {
-        title: "Insurance Liability Bucket Report",
-        description: "I led a comprehensive data clean-up effort across 300,000+ transactions, dramatically improving the accuracy of financial records and boosting reporting performance. Using MySQL, I performed a detailed analysis of insurance reimbursement rates by payor, providing actionable insights that supported more effective revenue cycle management and improved overall reimbursement efficiency.",
-        date: "June 2024 - July 2025",
-        company: "Reliant HouseCalls",
-        skills: ["MySQL", "Python", "Java"]
     }
 ]
 
@@ -82,35 +77,35 @@ const certifications = [
     {
         title: "Oracle Certified Associate, Java SE 8",
         date: "March 2026",
-        school: "",
+        school: "Oracle",
         location: "",
         description: ""
     },
     {
         title: "AWS Solutions Architect - Associate",
         date: "January 2026 - January 2029",
-        school: "",
+        school: "Amazon",
         location: "",
         description: ""
     },
     {
         title: "AWS Cloud Practitioner",
         date: "December 2025 - December 2028",
-        school: "",
+        school: "Amazon",
         location: "",
         description: ""
     },
     {
         title: "Java Foundations Certified Associate",
         date: "December 2025",
-        school: "",
+        school: "Oracle",
         location: "",
         description: ""
     },
     {
         title: "CompTIA™ Security+",
         date: "April 2025 - April 2028",
-        school: "",
+        school: "CompTIA™",
         location: "",
         description: ""
     }
@@ -190,12 +185,12 @@ export const Index = () => {
                                     Nice to meet you! I'm Leah Sattar, a full-stack developer with a strong focus on security, DevOps, and building efficient, scalable solutions. I thrive on solving complex challenges and streamlining development processes across cloud platforms like <b className='text-purple'>Amazon Web Services</b> and <b className='text-purple'>Google Cloud Platform</b>.
                                 </p>
                                 <p>
-                                    I've built full-stack applications that address real business needs while working with teams at <b className='text-purple'>SkillStorm</b> and <b className='text-purple'>Reliant HouseCalls</b>. In the healthcare space, I’ve also used <b className='text-purple'>Epic Clarity</b> and <b className='text-purple'>MySQL</b> to analyze clinical and operational data, helping drive informed decision-making and improve patient care outcomes.
+                                    I've built full-stack applications that address real business needs while working with teams at <b className='text-purple'>SkillStorm</b> and <b className='text-purple'>Your Family House Calls</b>. In the healthcare space, I’ve also used <b className='text-purple'>Epic Clarity</b> and <b className='text-purple'>MySQL</b> to analyze clinical and operational data, helping drive informed decision-making and improve patient care outcomes.
                                 </p>
                                 <p>
                                     Beyond coding, I enjoy spending time with my four cats, mastering Dance Dance Revolution, and experimenting in the kitchen.
                                 </p>
-                                <h5 className='text-purple'>I am experienced in: </h5>
+                                <h5 className='text-purple'>I have experience with: </h5>
                                 <SkillMarquee></SkillMarquee>
                                 <br></br>
                                 <Link to="/about-me" className="text-purple purple-link fw-bold">Read more about me →</Link>
